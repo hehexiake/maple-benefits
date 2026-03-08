@@ -1,6 +1,6 @@
 # maple-benefits
 
-![maple-benefits banner](docs/screenshots/banner.png)
+<img src="docs/logo.png" width="120" alt="maple-benefits logo" align="right">
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Version](https://img.shields.io/badge/version-v1.3-blue)]()
