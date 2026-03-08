@@ -1,0 +1,220 @@
+{
+  "_meta": {
+    "scope": "federal",
+    "benefitYear": "2025-26",
+    "basedOn": "2024 tax return",
+    "lastVerified": "2026-03-08",
+    "sources": [
+      "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/canada-child-benefit.html",
+      "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/gst-hst-credit.html"
+    ]
+  },
+  "benefits": [
+    {
+      "id": "F1",
+      "name": "CCB 牛奶金",
+      "en": "Canada Child Benefit",
+      "cat": "federal",
+      "scope": "federal",
+      "dataAsOf": "2025-26",
+      "max": "$7,997（<6岁）/ $6,748（6-17岁）/年",
+      "url": "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/canada-child-benefit.html",
+      "desc": "为有孩子的家庭提供免税月度补贴，基于收入和孩子数量计算。",
+      "conditions": [
+        "已成为永久居民或公民",
+        "已完成报税",
+        "是孩子的主要抚养人",
+        "孩子未满18岁"
+      ],
+      "calculation": {
+        "maxUnder6PerChild": 7997,
+        "max6to17PerChild": 6748,
+        "phaseOut1Threshold": 37487,
+        "phaseOut2Threshold": 81222,
+        "phaseOutRates": {
+          "1child": { "tier1": 0.07, "tier2": 0.032 },
+          "2children": { "tier1": 0.135, "tier2": 0.057 },
+          "3children": { "tier1": 0.19, "tier2": 0.08 },
+          "4plusChildren": { "tier1": 0.23, "tier2": 0.095 }
+        },
+        "nextYearAmounts": {
+          "effectiveJuly": "2026-07",
+          "maxUnder6PerChild": 8157,
+          "max6to17PerChild": 6883,
+          "phaseOut1Threshold": 38237,
+          "phaseOut2Threshold": 82847
+        }
+      }
+    },
+    {
+      "id": "F2",
+      "name": "GST/HST 退税",
+      "en": "GST/HST Credit (→ CGEB from July 2026)",
+      "cat": "federal",
+      "scope": "federal",
+      "dataAsOf": "2025-26",
+      "max": "$533（单人）/ $698（夫妻）/年",
+      "url": "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/gst-hst-credit/get-credit.html",
+      "desc": "低中收入个人和家庭的季度免税退税，自动通过报税申请。2026年7月起改名为Canada Groceries and Essentials Benefit (CGEB) 并增加25%。",
+      "conditions": [
+        "已完成报税",
+        "调整后家庭净收入低于约$65,000（家庭因孩子数量而异）",
+        "加拿大居民"
+      ],
+      "calculation": {
+        "baseSingle": 533,
+        "baseSpouseAddOn": 165,
+        "perChild": 184,
+        "singleLowIncomeMax": 157,
+        "singleLowIncomePhaseInStart": 11337,
+        "phaseOutThreshold": 44324,
+        "phaseOutRate": 0.05,
+        "paymentDates": ["Jan 5", "Apr 5", "Jul 5", "Oct 5"],
+        "CGEB": {
+          "announcement": "2026-01-26",
+          "oneTimeTopUp": "50% of 2025-26 entitlement",
+          "oneTimeTopUpDeadline": "2026-06-30",
+          "permanentIncrease": "25% for 5 years",
+          "effectiveJuly": "2026-07"
+        }
+      }
+    },
+    {
+      "id": "F3",
+      "name": "加拿大工人福利",
+      "en": "Canada Workers Benefit",
+      "cat": "federal",
+      "scope": "federal",
+      "dataAsOf": "2025-26",
+      "max": "最高 $1,633（单身）/ $2,813（有家属）/年",
+      "url": "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/canada-workers-benefit.html",
+      "desc": "为低收入在职人员提供的退税福利，可提前预支。",
+      "conditions": ["有工作收入", "收入低于门槛", "年满19岁", "加拿大居民"],
+      "calculation": {
+        "maxSingle": 1633,
+        "maxWithDependants": 2813,
+        "phaseInStartSingle": 26855,
+        "phaseInStartDependants": 30639,
+        "phaseOutEndSingle": 37742,
+        "phaseOutEndDependants": 49393
+      }
+    },
+    {
+      "id": "F4",
+      "name": "加拿大牙科保健计划",
+      "en": "Canada Dental Care Plan",
+      "cat": "federal",
+      "scope": "federal",
+      "dataAsOf": "2025-26",
+      "max": "按项目",
+      "url": "https://www.canada.ca/en/services/benefits/dental/dental-care-plan/apply.html",
+      "desc": "为无雇主牙科保险的低收入人群提供牙科保障。",
+      "conditions": [
+        "无雇主提供牙科保险",
+        "家庭净收入低于 $90,000",
+        "已完成报税"
+      ],
+      "calculation": {
+        "incomeThreshold": 90000,
+        "type": "service-based"
+      }
+    },
+    {
+      "id": "F5",
+      "name": "EI 育儿/产假",
+      "en": "Employment Insurance Parental/Maternity",
+      "cat": "federal",
+      "scope": "federal",
+      "dataAsOf": "2025-26",
+      "max": "55% 收入最高52周",
+      "url": "https://www.canada.ca/en/services/benefits/ei/ei-maternity-parental/apply.html",
+      "desc": "为新父母提供收入替代。",
+      "conditions": ["有可保就业收入"],
+      "calculation": {
+        "rate": 0.55,
+        "maxWeeklyBenefit": 668,
+        "maxWeeks": 52
+      }
+    },
+    {
+      "id": "F6",
+      "name": "加拿大学习债券",
+      "en": "Canada Learning Bond",
+      "cat": "federal",
+      "scope": "federal",
+      "dataAsOf": "2025-26",
+      "max": "最高 $2,000/孩子（终生）",
+      "url": "https://www.canada.ca/en/services/benefits/education/education-savings/canada-learning-bond.html",
+      "desc": "为低收入家庭孩子RESP免费注入最高$2000，无需自己供款。",
+      "conditions": ["已开RESP", "家庭收入低于门槛", "孩子符合条件"],
+      "calculation": {
+        "lifetimeMax": 2000,
+        "incomeThreshold": 57375
+      }
+    },
+    {
+      "id": "F7",
+      "name": "CESG 教育储蓄补贴",
+      "en": "Canada Education Savings Grant",
+      "cat": "federal",
+      "scope": "federal",
+      "dataAsOf": "2025-26",
+      "max": "20% 配比最高 $500/年",
+      "url": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/registered-education-savings-plans-resps/canada-education-savings-programs-cesp/canada-education-savings-grant-cesg.html",
+      "desc": "RESP供款可获政府20%配比补贴，每年最高$500，终生最高$7,200。",
+      "conditions": ["已开RESP", "孩子未满18岁"],
+      "calculation": {
+        "matchRate": 0.20,
+        "annualMax": 500,
+        "lifetimeMax": 7200
+      }
+    },
+    {
+      "id": "F8",
+      "name": "CPP 婚姻积分分割",
+      "en": "CPP Credit Splitting",
+      "cat": "federal",
+      "scope": "federal",
+      "dataAsOf": "2025-26",
+      "max": "影响退休金（因人而异）",
+      "url": "https://www.canada.ca/en/services/benefits/publicpensions/cpp/cpp-split-credits.html",
+      "desc": "离婚后可申请在婚期间的CPP积分平均分割，影响未来退休金。",
+      "conditions": ["离婚/分居"],
+      "calculation": { "type": "variable" }
+    },
+    {
+      "id": "F9",
+      "name": "受抚养人税收抵免",
+      "en": "Amount for an Eligible Dependent",
+      "cat": "federal",
+      "scope": "federal",
+      "dataAsOf": "2025-26",
+      "max": "税收抵免约 $2,200/年",
+      "url": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-30400-amount-eligible-dependant.html",
+      "desc": "单亲独立抚养孩子可申请受抚养人税收抵免，相当于联邦税节省约$2,200。",
+      "conditions": ["单亲/分居", "孩子同住", "非共同监护（或为主要监护人）"],
+      "calculation": {
+        "estimatedAnnualTaxSaving": 2200
+      }
+    },
+    {
+      "id": "F10",
+      "name": "加拿大残障福利",
+      "en": "Canada Disability Benefit",
+      "cat": "federal",
+      "scope": "federal",
+      "dataAsOf": "2025-26",
+      "max": "最高 $200/月（$2,400/年）",
+      "url": "https://www.canada.ca/en/services/benefits/disability/canada-disability-benefit.html",
+      "desc": "持残障税收抵免(DTC)批准的低收入人群月度补贴，2025年6月起开放申请。",
+      "conditions": ["已获批DTC", "18-64岁", "已报税"],
+      "calculation": {
+        "maxMonthly": 200,
+        "maxAnnual": 2400,
+        "incomeThreshold": 23000,
+        "phaseOutRate": 0.20,
+        "fullPhaseOutIncome": 35000
+      }
+    }
+  ]
+}

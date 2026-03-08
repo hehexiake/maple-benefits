@@ -1,0 +1,30 @@
+{
+  "_meta": {
+    "scope": "provincial",
+    "province": "ON",
+    "provinceName": "Ontario",
+    "status": "coming-soon",
+    "lastVerified": null,
+    "notes": "Stub file. Ontario data contribution welcome — see CONTRIBUTING.md"
+  },
+  "benefits": [
+    {
+      "id": "ON-P1",
+      "name": "Ontario Trillium Benefit",
+      "en": "Ontario Trillium Benefit (OTB)",
+      "cat": "ontario",
+      "scope": "provincial",
+      "status": "coming-soon",
+      "url": "https://www.ontario.ca/page/ontario-trillium-benefit"
+    },
+    {
+      "id": "ON-P2",
+      "name": "Ontario Child Benefit",
+      "en": "Ontario Child Benefit (OCB)",
+      "cat": "ontario",
+      "scope": "provincial",
+      "status": "coming-soon",
+      "url": "https://www.ontario.ca/page/ontario-child-benefit"
+    }
+  ]
+}

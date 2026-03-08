@@ -1,0 +1,184 @@
+{
+  "_meta": {
+    "scope": "provincial",
+    "province": "BC",
+    "provinceName": "British Columbia",
+    "benefitYear": "2025-26",
+    "basedOn": "2024 tax return",
+    "lastVerified": "2026-03-08",
+    "status": "complete",
+    "sources": [
+      "https://www2.gov.bc.ca/gov/content/family-social-supports/affordability/family-benefit",
+      "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/provincial-territorial-programs/province-british-columbia.html"
+    ],
+    "notes": "BC Climate Action Tax Credit (BCCATC) was cancelled; last payment April 2025."
+  },
+  "benefits": [
+    {
+      "id": "P1",
+      "name": "BC 家庭福利",
+      "en": "BC Family Benefit",
+      "cat": "bc",
+      "scope": "provincial",
+      "dataAsOf": "2025-26",
+      "max": "第1孩 $1,750 + 每增1孩 $1,100/年；单亲+$500",
+      "url": "https://www2.gov.bc.ca/gov/content/family-social-supports/affordability/family-benefit",
+      "desc": "BC省有孩家庭补贴，随CCB一起每月发放。2025年7月起bonus结束，回归常规金额。",
+      "conditions": ["BC居民", "有18岁以下孩子", "已报税"],
+      "calculation": {
+        "firstChildAnnual": 1750,
+        "additionalChildAnnual": 1100,
+        "singleParentSupplement": 500,
+        "fullAmountThreshold": 29526,
+        "tier2Threshold": 94483,
+        "phaseOutRate1": 0.04,
+        "phaseOutRate2": 0.04,
+        "paymentDay": 20,
+        "combinedWithCCB": true,
+        "bonusEnded": "2025-06-30"
+      }
+    },
+    {
+      "id": "P2",
+      "name": "经济实惠托儿补贴",
+      "en": "Affordable Child Care Benefit",
+      "cat": "bc",
+      "scope": "provincial",
+      "dataAsOf": "2025-26",
+      "max": "最高 $1,250/孩子/月",
+      "url": "https://www2.gov.bc.ca/gov/content/family-social-supports/caring-for-young-children/childcarebc-programs/child-care-benefit/information-for-families/apply-funding",
+      "desc": "BC省托儿费用补贴，收入门槛$111,000以下家庭可申请，按使用持牌托儿计算。",
+      "conditions": ["BC居民", "使用持牌托儿机构", "家庭收入低于$111,000"],
+      "calculation": {
+        "maxMonthlyPerChild": 1250,
+        "incomeThreshold": 111000,
+        "type": "sliding-scale"
+      }
+    },
+    {
+      "id": "P3",
+      "name": "托儿费减免 CCFRI",
+      "en": "Child Care Fee Reduction Initiative",
+      "cat": "bc",
+      "scope": "provincial",
+      "dataAsOf": "2025-26",
+      "max": "最高 $350/孩子/月",
+      "url": "https://www2.gov.bc.ca/gov/content/family-social-supports/caring-for-young-children/childcarebc-programs/child-care-fee-reduction-initiative-provider-opt-in-status",
+      "desc": "已加入CCFRI的托儿中心自动减免，无需家庭申请，由中心直接降低收费。",
+      "conditions": ["使用已加入CCFRI的持牌托儿中心"],
+      "calculation": {
+        "maxMonthlyPerChild": 350,
+        "type": "automatic-at-provider"
+      }
+    },
+    {
+      "id": "P4",
+      "name": "租房援助计划 RAP",
+      "en": "Rental Assistance Program",
+      "cat": "bc",
+      "scope": "provincial",
+      "dataAsOf": "2025-26",
+      "max": "平均 $700/月（基于租金与收入差距）",
+      "url": "https://www.bchousing.org/housing-assistance/rental-assistance-programs/RAP",
+      "desc": "BC Housing提供给低收入有孩子租房家庭的月度补贴，帮助填补租金缺口。",
+      "conditions": ["BC居民", "租住私人市场", "有18岁以下孩子", "家庭收入低于$60,000"],
+      "calculation": {
+        "incomeThreshold": 60000,
+        "maxMonthly": 700,
+        "formula": "min(700, max(0, monthlyRent - income/12 * 0.3))"
+      }
+    },
+    {
+      "id": "P5",
+      "name": "加拿大-BC住房补贴",
+      "en": "Canada-BC Housing Benefit",
+      "cat": "bc",
+      "scope": "provincial",
+      "dataAsOf": "2025-26",
+      "max": "按情况（核心住房需求）",
+      "url": "https://www.bchousing.org/housing-assistance/rental-assistance-programs/CBCHB",
+      "desc": "针对处于核心住房需求的低收入租户，补贴金额基于个人情况评估。",
+      "conditions": ["BC居民", "低收入", "处于核心住房需求（租金超收入30%或住房条件不适）"],
+      "calculation": { "type": "variable", "incomeThreshold": 45000 }
+    },
+    {
+      "id": "P6",
+      "name": "BC MSP 注册与补充福利",
+      "en": "MSP Registration & Supplementary Benefits",
+      "cat": "bc",
+      "scope": "provincial",
+      "dataAsOf": "2025-26",
+      "max": "MSP注册免费（省级医疗）",
+      "url": "https://www2.gov.bc.ca/gov/content/health/health-drug-coverage/msp/bc-residents/eligibility-and-enrolment/how-to-enrol",
+      "desc": "注册MSP获得BC省医疗覆盖。保费已于2020年取消，注册免费。低收入可获额外补充福利。",
+      "conditions": ["BC居民"],
+      "calculation": { "type": "free-enrollment" }
+    },
+    {
+      "id": "P7",
+      "name": "健康儿童计划",
+      "en": "Healthy Kids Program",
+      "cat": "bc",
+      "scope": "provincial",
+      "dataAsOf": "2025-26",
+      "max": "牙科 + 眼镜（按项目）",
+      "url": "https://www2.gov.bc.ca/gov/content/governments/policies-for-government/bcea-policy-and-procedure-manual/health-supplements-and-programs/healthy-kids",
+      "desc": "为未参加牙科保险的低收入家庭孩子提供基本牙科和眼镜支持。",
+      "conditions": ["19岁以下孩子", "家庭低收入", "未有雇主保险覆盖"],
+      "calculation": { "type": "service-based" }
+    },
+    {
+      "id": "P8",
+      "name": "BC 收入援助",
+      "en": "BC Income Assistance",
+      "cat": "bc",
+      "scope": "provincial",
+      "dataAsOf": "2025-26",
+      "max": "最高 $1,060/月（$560生活 + $500住房）",
+      "url": "https://www2.gov.bc.ca/gov/content/family-social-supports/income-assistance/apply-for-assistance",
+      "desc": "BC省为无就业收入的低收入人士提供的基本生活援助。",
+      "conditions": ["BC居民", "无就业收入", "家庭收入低于$20,000"],
+      "calculation": {
+        "maxMonthly": 1060,
+        "supportComponent": 560,
+        "housingComponent": 500,
+        "incomeThreshold": 20000
+      }
+    },
+    {
+      "id": "P9",
+      "name": "KidSport 运动补贴",
+      "en": "BC KidSport",
+      "cat": "bc",
+      "scope": "provincial",
+      "dataAsOf": "2025-26",
+      "max": "最高 $400/年",
+      "url": "https://kidsportcanada.ca/british-columbia/",
+      "desc": "为低收入家庭孩子参加有组织体育运动提供费用补贴。",
+      "conditions": ["18岁以下孩子", "家庭收入低于$60,000"],
+      "calculation": {
+        "maxAnnual": 400,
+        "incomeThreshold": 60000
+      }
+    },
+    {
+      "id": "P10",
+      "name": "BC 租房税务抵免",
+      "en": "BC Renter's Tax Credit",
+      "cat": "bc",
+      "scope": "provincial",
+      "dataAsOf": "2025-26",
+      "max": "最高 $400/年",
+      "url": "https://www2.gov.bc.ca/gov/content/taxes/income-taxes/personal/credits/renters-tax-credit",
+      "desc": "BC省低收入租房者报税时可申领的税收抵免，填写BC479表格。",
+      "conditions": ["BC居民", "租房", "已报税", "家庭收入低于$84,764"],
+      "calculation": {
+        "maxAnnual": 400,
+        "phaseOutStart": 64764,
+        "phaseOutEnd": 84764,
+        "phaseOutRate": 0.02,
+        "claimedVia": "BC479 form"
+      }
+    }
+  ]
+}
