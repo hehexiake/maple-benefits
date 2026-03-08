@@ -2,9 +2,39 @@
 
 ![maple-benefits banner](docs/screenshots/banner.png)
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Version](https://img.shields.io/badge/version-v1.3-blue)]()
+[![Offline Ready](https://img.shields.io/badge/offline-ready-brightgreen)]()
+[![No Backend](https://img.shields.io/badge/backend-none-green)]()
+[![Languages](https://img.shields.io/badge/lang-EN%20%7C%20中文-red)]()
+[![GitHub Pages](https://github.com/hehexiake/maple-benefits/actions/workflows/pages/pages-build-deployment/badge.svg)](https://hehexiake.github.io/maple-benefits)
+
 **Canada PR Life Tracker** — A free, open-source tool for new Canadian permanent residents to discover, calculate, and track federal and provincial benefits.
 
 🌐 Bilingual (English / 中文) · 🇨🇦 [**Try it now → hehexiake.github.io/maple-benefits**](https://hehexiake.github.io/maple-benefits)
+
+---
+
+## Table of Contents
+
+- [Screenshots](#screenshots)
+- [Your data never leaves your device](#-your-data-never-leaves-your-device)
+- [What it does](#what-it-does)
+- [Why this is different](#why-this-is-different)
+- [How to use](#how-to-use)
+- [AI features](#ai-features)
+- [Data coverage](#data-coverage)
+- [Changelog](#changelog)
+- [Contributing](#contributing)
+- [Disclaimer](#disclaimer)
+
+---
+
+## Screenshots
+
+| Dashboard | Benefits Library | Scenario Diagnosis |
+|:---------:|:----------------:|:-----------------:|
+| ![Dashboard](docs/screenshots/dashboard.png) | ![Library](docs/screenshots/library.png) | ![Advisor](docs/screenshots/advisor.png) |
 
 ---
 
@@ -64,23 +94,6 @@ Download `index.html`, double-click to open. Works 100% offline. AI features req
 
 ---
 
-## Changelog
-
-### v1.3 (2026-03)
-- Full bilingual support (English default + 中文 toggle, persists in localStorage)
-- All benefit status tracking now uses internal keys — language-safe and migration-resistant
-- Next Actions panel on Dashboard: eligible unapplied benefits ranked by amount
-- Library filter bar: All / Pending / Applied+Receiving
-- Dashboard stat cards are now clickable shortcuts to filtered views
-- Benefit detail view uses language-appropriate `desc_en` / `conditions_en` fields
-- Fixed: `dismissAlert`, `selectBenefit`, `toggleStep` crash on interaction
-- Fixed: timeline and CCB alert logic broken after language switch
-
-### v1.2.2
-- Initial public release
-
----
-
 ## AI features
 
 AI is **optional**. The core benefit calculator, tracker, and alerts work completely without it.
@@ -105,6 +118,23 @@ With AI you unlock:
 | Other provinces | 🚧 Contributions welcome |
 
 Data is updated annually to align with Canada's benefit year (July–June).
+
+---
+
+## Changelog
+
+### v1.3 (2026-03)
+- Full bilingual support (English default + 中文 toggle, persists in localStorage)
+- All benefit status tracking now uses internal keys — language-safe and migration-resistant
+- Next Actions panel on Dashboard: eligible unapplied benefits ranked by amount
+- Library filter bar: All / Pending / Applied+Receiving
+- Dashboard stat cards are now clickable shortcuts to filtered views
+- Benefit detail view uses language-appropriate `desc_en` / `conditions_en` fields
+- Fixed: `dismissAlert`, `selectBenefit`, `toggleStep` crash on interaction
+- Fixed: timeline and CCB alert logic broken after language switch
+
+### v1.2.2
+- Initial public release
 
 ---
 
