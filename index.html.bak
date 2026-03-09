@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>加拿大福利追踪器 · Canada Benefits Tracker</title>
+<title>Canada PR Life Tracker — maple-benefits</title>
 <link rel="icon" type="image/png" href="docs/favicon.png">
 <link rel="apple-touch-icon" href="docs/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,59 +11,50 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
 <style>
-:root{--primary:#C41E3A;--primary-dark:#9E1830;--primary-light:#FCEAED;--success:#059669;--success-light:#D1FAE5;--warning:#D97706;--warning-light:#FEF3C7;--danger:#DC2626;--danger-light:#FEE2E2;--border:#E5DED5;--text:#1A1410;--muted:#7A7068;--bg:#F5F1EC;--surface:#FFFFFE;--sidebar-w:230px;}
+:root{--primary:#1a56db;--primary-dark:#1240a8;--primary-light:#e8f0fe;--success:#10b981;--success-light:#d1fae5;--warning:#f59e0b;--warning-light:#fef3c7;--danger:#ef4444;--danger-light:#fee2e2;--border:#e5e7eb;--text:#111827;--muted:#6b7280;--bg:#f8fafc;--surface:#fff;--sidebar-w:230px;}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text)}
-#sidebar{position:fixed;left:0;top:0;bottom:0;width:var(--sidebar-w);background:#1C1410;color:#E8E2DA;z-index:100;display:flex;flex-direction:column;transition:transform .25s ease}
+#sidebar{position:fixed;left:0;top:0;bottom:0;width:var(--sidebar-w);background:#0f172a;color:#e2e8f0;z-index:100;display:flex;flex-direction:column;transition:transform .25s ease}
 #main{margin-left:var(--sidebar-w);min-height:100vh}
-.sidebar-logo{padding:18px 20px;border-bottom:1px solid rgba(255,255,255,.06)}
+.sidebar-logo{padding:20px;border-bottom:1px solid rgba(255,255,255,.08)}
 .sidebar-logo h1{font-size:14px;color:#fff;font-weight:700}
-.sidebar-logo p{font-size:11px;color:#8A7E74;margin-top:2px}
+.sidebar-logo p{font-size:11px;color:#64748b;margin-top:2px}
 .lang-switcher{display:flex;gap:6px;padding:8px 16px 4px}
-.lang-btn{font-size:11px;padding:2px 10px;border-radius:4px;border:1px solid #3D2C24;cursor:pointer;font-weight:700;transition:all .15s}
-.lang-btn.active{background:var(--primary);color:#fff}
-.lang-btn.inactive{background:transparent;color:#8A7E74}
+.lang-btn{font-size:11px;padding:2px 10px;border-radius:4px;border:1px solid #334155;cursor:pointer;font-weight:700;transition:all .15s}
+.lang-btn.active{background:#1e293b;color:#fff}
+.lang-btn.inactive{background:transparent;color:#94a3b8}
 .nav{padding:12px 0;flex:1}
-.nav-item{padding:9px 20px;display:flex;align-items:center;gap:8px;cursor:pointer;color:#9E948C;border-left:2px solid transparent;font-size:13.5px;transition:all .15s}
-.nav-item:hover{background:rgba(255,255,255,.06);color:#EDE8E2}
-.nav-item.active{color:#fff;background:rgba(196,30,58,.2);border-left-color:var(--primary)}
+.nav-item{padding:9px 20px;display:flex;align-items:center;gap:8px;cursor:pointer;color:#94a3b8;border-left:2px solid transparent;font-size:13.5px;transition:all .15s}
+.nav-item:hover{background:rgba(255,255,255,.04);color:#e2e8f0}
+.nav-item.active{color:#fff;background:rgba(26,86,219,.2);border-left-color:var(--primary)}
 .nav-item .badge{margin-left:auto;background:var(--danger);color:#fff;border-radius:999px;padding:1px 6px;font-size:10px;font-weight:700}
-.sidebar-footer{padding:14px 20px;border-top:1px solid rgba(255,255,255,.06)}
-#header{height:60px;background:var(--surface);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:40}
-.page-title{font-size:16px;font-weight:700;letter-spacing:-0.3px}
+.sidebar-footer{padding:16px 20px;border-top:1px solid rgba(255,255,255,.08)}
+#header{height:60px;background:#fff;border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:40}
+.page-title{font-size:17px;font-weight:700}
 .page-sub{font-size:12px;color:var(--muted)}
 .content{padding:24px;max-width:1240px}
-.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:18px}
 .card+.card{margin-top:14px}
 .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-.stat{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px;position:relative;cursor:pointer;transition:all .18s;box-shadow:0 1px 3px rgba(0,0,0,.04);overflow:hidden}
-.stat:hover{border-color:var(--primary);box-shadow:0 0 0 3px var(--primary-light),0 4px 12px rgba(0,0,0,.06)}
-.stat .bar{position:absolute;left:0;top:0;bottom:0;width:4px;opacity:0.85}
-.stat .label{font-size:10.5px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.8px}
-.stat .value{font-size:32px;font-weight:800;margin-top:6px;letter-spacing:-1px;line-height:1}
-.stat .hint{font-size:11px;color:var(--muted);margin-top:8px;opacity:0.7}
-.stats-hero-grid{display:grid;grid-template-columns:2fr 1fr;gap:14px;margin-bottom:14px}
-.stats-mini{display:flex;flex-direction:column;gap:10px}
-.stat-hero{padding:22px 22px 22px 26px}
-.stat-hero .label{font-size:11px}
-.stat-hero .value{font-size:52px;letter-spacing:-2px;margin-top:8px}
-.stat-hero .hint{font-size:12px;margin-top:10px}
-.stat-mini{padding:14px 14px 14px 18px}
-.stat-mini .value{font-size:26px;margin-top:4px}
-.stat-mini .hint{margin-top:4px;font-size:10.5px}
-.benefit-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px;cursor:pointer;transition:all .18s;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.stat{background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px;position:relative;cursor:pointer;transition:all .16s}
+.stat:hover{border-color:var(--primary);box-shadow:0 0 0 3px var(--primary-light)}
+.stat .bar{position:absolute;left:0;top:0;right:0;height:3px;border-radius:12px 12px 0 0}
+.stat .label{font-size:12px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.4px}
+.stat .value{font-size:28px;font-family:'DM Mono',monospace;font-weight:700;margin-top:6px}
+.stat .hint{font-size:11px;color:var(--muted);margin-top:4px}
+.benefit-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:14px;cursor:pointer;transition:all .16s}
 .benefit-card:hover{border-color:var(--primary);box-shadow:0 0 0 3px var(--primary-light)}
 .benefit-name{font-size:13.5px;font-weight:700}
 .benefit-en{font-size:11px;color:var(--muted)}
-.benefit-amt{font-family:'DM Mono',monospace;color:var(--text);font-size:14px;font-weight:600;margin-top:8px;letter-spacing:-0.2px}
-.badge-pill{display:inline-flex;align-items:center;gap:4px;border-radius:6px;padding:3px 9px;font-size:10.5px;font-weight:600;letter-spacing:0.1px}
-.badge-unaware{background:#EDE8E2;color:#7A7068}
+.benefit-amt{font-family:'DM Mono',monospace;color:var(--primary);font-size:16px;font-weight:700;margin-top:8px}
+.badge-pill{display:inline-flex;align-items:center;gap:4px;border-radius:999px;padding:3px 8px;font-size:11px;font-weight:700}
+.badge-unaware{background:#f1f5f9;color:#64748b}
 .badge-aware{background:var(--warning-light);color:#92400e}
-.badge-applied{background:#dbeafe;color:#1e40af}
+.badge-applied{background:#ede9fe;color:#5b21b6}
 .badge-receiving{background:var(--success-light);color:#065f46}
-.badge-ineligible{background:#EDE8E2;color:#9E948C}
+.badge-ineligible{background:#f3f4f6;color:#6b7280}
 .btn{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:8px;border:none;cursor:pointer;font-size:13px;font-weight:700;transition:all .15s}
 .btn-primary{background:var(--primary);color:#fff}.btn-primary:hover{background:var(--primary-dark)}
 .btn-outline{background:#fff;border:1px solid var(--border)}.btn-outline:hover{background:#f8fafc}
@@ -80,11 +71,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text)}
 .section-body{padding:0 14px 14px}
 .section-divider{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;border-bottom:1px solid var(--border);padding-bottom:7px;margin-bottom:10px;font-weight:700}
 .lib{display:grid;grid-template-columns:250px 1fr;gap:14px}
-.lib-list{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.lib-list{background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden}
 .lib-item{padding:11px 14px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .12s}
 .lib-item:hover{background:#f8fafc}
 .lib-item.active{background:var(--primary-light);border-left:3px solid var(--primary)}
-.lib-detail{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.lib-detail{background:#fff;border:1px solid var(--border);border-radius:12px;padding:18px}
 .timeline-item{display:flex;gap:10px;border-bottom:1px solid var(--border);padding:8px 0}
 .alert-item{display:flex;gap:10px;padding:12px;border-radius:10px;border:1px solid transparent;margin-bottom:9px}
 .alert-red{background:#fff5f5;border-color:#fecaca}
@@ -110,14 +101,14 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text)}
 #toast{position:fixed;right:20px;bottom:20px;background:#0f172a;color:#fff;padding:10px 14px;border-radius:9px;transform:translateY(60px);opacity:0;transition:.25s;z-index:9999;font-size:13px}
 #toast.show{transform:translateY(0);opacity:1}
 .modal{position:fixed;inset:0;background:rgba(0,0,0,.45);backdrop-filter:blur(3px);display:none;align-items:center;justify-content:center;z-index:1000}
-.modal-box{width:min(560px,92%);background:#fff;border-radius:16px;padding:24px;box-shadow:0 24px 64px rgba(0,0,0,.22)}
-@media(max-width:900px){.grid-4{grid-template-columns:1fr 1fr}.grid-3{grid-template-columns:1fr 1fr}.grid-2{grid-template-columns:1fr}.lib{grid-template-columns:1fr}.stats-hero-grid{grid-template-columns:1fr}.stats-mini{flex-direction:row}}
-@media(max-width:768px){#sidebar{transform:translateX(-100%)}#sidebar.open{transform:translateX(0)}#main{margin-left:0}.content{padding:14px}.grid-4,.grid-3{grid-template-columns:1fr}.stats-hero-grid{grid-template-columns:1fr}.stats-mini{flex-direction:column}}
+.modal-box{width:min(560px,92%);background:#fff;border-radius:14px;padding:22px}
+@media(max-width:900px){.grid-4{grid-template-columns:1fr 1fr}.grid-3{grid-template-columns:1fr 1fr}.grid-2{grid-template-columns:1fr}.lib{grid-template-columns:1fr}}
+@media(max-width:768px){#sidebar{transform:translateX(-100%)}#sidebar.open{transform:translateX(0)}#main{margin-left:0}.content{padding:14px}.grid-4,.grid-3{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <nav id="sidebar">
-  <div class="sidebar-logo" style="display:flex;align-items:center;gap:10px"><img src="docs/favicon.png" width="28" height="28" style="border-radius:5px;flex-shrink:0"><div><h1>Canada Benefits Tracker</h1><p>v1.3</p></div></div>
+  <div class="sidebar-logo" style="display:flex;align-items:center;gap:10px"><img src="docs/favicon.png" width="28" height="28" style="border-radius:5px;flex-shrink:0"><div><h1>Canada PR Life Tracker</h1><p>v1.3 · open beta</p></div></div>
   <div class="lang-switcher">
     <button id="btn-lang-en" class="lang-btn" onclick="setLang('en')">EN</button>
     <button id="btn-lang-zh" class="lang-btn" onclick="setLang('zh')">中文</button>
@@ -289,7 +280,7 @@ en: {
   confirm_title:'Confirm', confirm_ok:'Confirm', confirm_cancel:'Cancel',
   toast_status_updated:'✅ {id} status → "{v}"',
   btn_save:'Save', btn_cancel:'Cancel', btn_test:'Test Connection', btn_clear:'Clear All Data',
-  about_text:'<b>Canada Benefits Tracker</b> v1.3<br>Single-file frontend · No backend<br>⚠️ For informational purposes only. Not tax or legal advice.',
+  about_text:'<b>Canada PR Life Tracker</b> v1.3<br>Single-file frontend · No backend<br>⚠️ For informational purposes only. Not tax or legal advice.',
   sec_identity:'🪪 Identity', sec_family:'👨‍👩‍👧 Family Status',
   sec_children:'👶 Children', sec_income:'💼 Income & Employment',
   sec_housing:'🏠 Housing', sec_childcare:'🧒 Childcare',
@@ -445,7 +436,7 @@ zh: {
   confirm_title:'确认', confirm_ok:'确认', confirm_cancel:'取消',
   toast_status_updated:'✅ {id} 状态已更新为「{v}」',
   btn_save:'保存', btn_cancel:'取消', btn_test:'测试连接', btn_clear:'清除所有数据',
-  about_text:'<b>加拿大福利追踪器</b> v1.3<br>单文件前端 · 无后端<br>⚠️ 本工具仅供参考，不构成税务或法律建议。',
+  about_text:'<b>Canada PR Life Tracker</b> v1.3<br>单文件前端 · 无后端<br>⚠️ 本工具仅供参考，不构成税务或法律建议。',
   sec_identity:'🪪 身份基础', sec_family:'👨‍👩‍👧 家庭状态',
   sec_children:'👶 孩子信息', sec_income:'💼 收入与就业',
   sec_housing:'🏠 住房', sec_childcare:'🧒 托儿',
@@ -775,7 +766,7 @@ function getStatusBadge(key){
     receiving:{cls:'badge-receiving',icon:'✅'},
     applied:  {cls:'badge-applied',  icon:'📝'},
     aware:    {cls:'badge-aware',    icon:'⚠️'},
-    ineligible:{cls:'badge-ineligible',icon:'—'},
+    ineligible:{cls:'badge-ineligible',icon:'❌'},
     unaware:  {cls:'badge-unaware',  icon:'💡'},
   };
   return map[key]||map.unaware;
@@ -815,44 +806,39 @@ function renderDashboard(){
     const name=LANG.current==='en'?b.en:b.name;
     const sub=LANG.current==='en'?b.name:b.en;
     return `<div class="benefit-card" onclick="openBenefit('${b.id}')">
-      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:8px">
-        <div style="flex:1;min-width:0">
-          <div class="benefit-name" style="font-size:14px;margin-bottom:3px">${name}</div>
-          <div class="benefit-en">${sub}</div>
-        </div>
+      <div style="display:flex;justify-content:space-between;gap:8px">
+        <div><div class="benefit-name">${name}</div><div class="benefit-en">${sub}</div></div>
         ${scopeTag(b)}
       </div>
-      <div class="benefit-amt" style="margin-top:0;margin-bottom:10px">${estimateAmount(b.id,profile)}</div>
-      <div><span class="badge-pill ${badge.cls}">${badge.icon} ${statusLabel(stKey)}</span></div>
+      <div class="benefit-amt">${estimateAmount(b.id,profile)}</div>
+      <div style="margin-top:8px"><span class="badge-pill ${badge.cls}">${badge.icon} ${statusLabel(stKey)}</span></div>
     </div>`;
   }).join('');
 
-  const stats=`<div class="stats-hero-grid">
-    <div class="stat stat-hero" onclick="navigate('library')" title="${t('stat_monthly_hint')}">
-      <div class="bar" style="background:linear-gradient(180deg,var(--primary),#818cf8)"></div>
+  const stats=`<div class="grid-4">
+    <div class="stat" onclick="navigate('library')" title="${t('stat_monthly_hint')}">
+      <div class="bar" style="background:linear-gradient(90deg,var(--primary),#818cf8)"></div>
       <div class="label">${t('stat_monthly')}</div>
       <div class="value">$${Math.round(total).toLocaleString()}</div>
       <div class="hint">${t('stat_monthly_hint')}</div>
     </div>
-    <div class="stats-mini">
-      <div class="stat stat-mini" onclick="filterLibrary('applied')" title="${t('stat_applied_hint')}">
-        <div class="bar" style="background:linear-gradient(180deg,var(--success),#34d399)"></div>
-        <div class="label">${t('stat_applied')}</div>
-        <div class="value">${applied}</div>
-        <div class="hint">${t('stat_applied_hint')}</div>
-      </div>
-      <div class="stat stat-mini" onclick="filterLibrary('pending')" title="${t('stat_pending_hint')}">
-        <div class="bar" style="background:linear-gradient(180deg,var(--warning),#fbbf24)"></div>
-        <div class="label">${t('stat_pending')}</div>
-        <div class="value">${pending}</div>
-        <div class="hint">${t('stat_pending_hint')}</div>
-      </div>
-      <div class="stat stat-mini" onclick="navigate('alerts')" title="${t('stat_missed_hint')}">
-        <div class="bar" style="background:linear-gradient(180deg,var(--danger),#f87171)"></div>
-        <div class="label">${t('stat_missed')}</div>
-        <div class="value">${warnings}</div>
-        <div class="hint">${t('stat_missed_hint')}</div>
-      </div>
+    <div class="stat" onclick="filterLibrary('applied')" title="${t('stat_applied_hint')}">
+      <div class="bar" style="background:linear-gradient(90deg,var(--success),#34d399)"></div>
+      <div class="label">${t('stat_applied')}</div>
+      <div class="value">${applied}</div>
+      <div class="hint">${t('stat_applied_hint')}</div>
+    </div>
+    <div class="stat" onclick="filterLibrary('pending')" title="${t('stat_pending_hint')}">
+      <div class="bar" style="background:linear-gradient(90deg,var(--warning),#fbbf24)"></div>
+      <div class="label">${t('stat_pending')}</div>
+      <div class="value">${pending}</div>
+      <div class="hint">${t('stat_pending_hint')}</div>
+    </div>
+    <div class="stat" onclick="navigate('alerts')" title="${t('stat_missed_hint')}">
+      <div class="bar" style="background:linear-gradient(90deg,var(--danger),#f87171)"></div>
+      <div class="label">${t('stat_missed')}</div>
+      <div class="value">${warnings}</div>
+      <div class="hint">${t('stat_missed_hint')}</div>
     </div>
   </div>`;
 

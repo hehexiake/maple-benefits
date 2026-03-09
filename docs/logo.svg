@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 220" width="200" height="220">
+  <defs><filter id="shadow"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#00000028"/></filter></defs>
+  <g filter="url(#shadow)">
+    <path d="M100,10 L106,32 L122,25 L114,42 L134,36 L122,52 L148,52 L130,64 L144,76 L122,74 L124,96 L100,86 L76,96 L78,74 L56,76 L70,64 L52,52 L78,52 L66,36 L86,42 L78,25 L94,32 Z" fill="#D52B1E"/>
+    <rect x="93" y="86" width="14" height="28" rx="5" fill="#D52B1E"/>
+  </g>
+  <rect x="66" y="50" width="16" height="16" rx="2.5" fill="none" stroke="white" stroke-width="2.2"/>
+  <polyline points="69,58 73,63 80,52" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="88" y1="58" x2="132" y2="58" stroke="white" stroke-width="2.8" stroke-linecap="round"/>
+  <rect x="66" y="66" width="16" height="16" rx="2.5" fill="none" stroke="white" stroke-width="2.2"/>
+  <polyline points="69,74 73,79 80,68" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="88" y1="74" x2="132" y2="74" stroke="white" stroke-width="2.8" stroke-linecap="round"/>
+  <rect x="66" y="82" width="16" height="16" rx="2.5" fill="none" stroke="white" stroke-width="2.2" opacity="0.6"/>
+  <line x1="88" y1="90" x2="124" y2="90" stroke="white" stroke-width="2.8" stroke-linecap="round" opacity="0.5"/>
+</svg>
