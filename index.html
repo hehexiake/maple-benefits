@@ -19,16 +19,20 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text)}
 .sidebar-logo{padding:18px 20px;border-bottom:1px solid rgba(255,255,255,.06)}
 .sidebar-logo h1{font-size:14px;color:#fff;font-weight:700}
 .sidebar-logo p{font-size:11px;color:#8A7E74;margin-top:2px}
-.lang-switcher{display:flex;gap:6px;padding:8px 16px 4px}
-.lang-btn{font-size:11px;padding:2px 10px;border-radius:4px;border:1px solid #3D2C24;cursor:pointer;font-weight:700;transition:all .15s}
-.lang-btn.active{background:var(--primary);color:#fff}
+.lang-switcher{padding:10px 16px 6px}
+.lang-pill{display:flex;background:rgba(255,255,255,.08);border-radius:8px;padding:3px;gap:2px}
+.lang-btn{font-size:11px;padding:4px 12px;border-radius:6px;border:none;cursor:pointer;font-weight:700;transition:all .15s;flex:1;text-align:center}
+.lang-btn.active{background:#fff;color:#1C1410;box-shadow:0 1px 3px rgba(0,0,0,.2)}
 .lang-btn.inactive{background:transparent;color:#8A7E74}
 .nav{padding:12px 0;flex:1}
-.nav-item{padding:9px 20px;display:flex;align-items:center;gap:8px;cursor:pointer;color:#9E948C;border-left:2px solid transparent;font-size:13.5px;transition:all .15s}
+.nav-item{padding:9px 20px;display:flex;align-items:center;gap:8px;cursor:pointer;color:#9E948C;border-left:3px solid transparent;font-size:13.5px;transition:all .15s}
 .nav-item:hover{background:rgba(255,255,255,.06);color:#EDE8E2}
-.nav-item.active{color:#fff;background:rgba(196,30,58,.2);border-left-color:var(--primary)}
+.nav-item.active{color:#fff;background:rgba(196,30,58,.18);border-left-color:var(--primary);font-weight:600}
 .nav-item .badge{margin-left:auto;background:var(--danger);color:#fff;border-radius:999px;padding:1px 6px;font-size:10px;font-weight:700}
-.sidebar-footer{padding:14px 20px;border-top:1px solid rgba(255,255,255,.06)}
+.sidebar-footer{padding:12px 14px;border-top:1px solid rgba(255,255,255,.06)}
+.sidebar-cta{background:rgba(196,30,58,.15);border:1px solid rgba(196,30,58,.3);border-radius:10px;padding:10px 12px;cursor:pointer;transition:all .15s}
+.sidebar-cta:hover{background:rgba(196,30,58,.25)}
+.sidebar-summary{background:rgba(255,255,255,.06);border-radius:10px;padding:10px 12px;font-size:11.5px;color:#C8BFB8;line-height:1.6}
 #header{height:60px;background:var(--surface);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:40}
 .page-title{font-size:16px;font-weight:700;letter-spacing:-0.3px}
 .page-sub{font-size:12px;color:var(--muted)}
@@ -50,14 +54,14 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text)}
 .stat-hero .label{font-size:11px}
 .stat-hero .value{font-size:52px;letter-spacing:-2px;margin-top:8px}
 .stat-hero .hint{font-size:12px;margin-top:10px}
-.stat-mini{padding:14px 14px 14px 18px}
+.stat-mini{padding:14px 14px 14px 18px;flex:1}
 .stat-mini .value{font-size:26px;margin-top:4px}
 .stat-mini .hint{margin-top:4px;font-size:10.5px}
 .benefit-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px;cursor:pointer;transition:all .18s;box-shadow:0 1px 2px rgba(0,0,0,.04)}
 .benefit-card:hover{border-color:var(--primary);box-shadow:0 0 0 3px var(--primary-light)}
-.benefit-name{font-size:13.5px;font-weight:700}
+.benefit-name{font-size:14px;font-weight:700}
 .benefit-en{font-size:11px;color:var(--muted)}
-.benefit-amt{font-family:'DM Mono',monospace;color:var(--text);font-size:14px;font-weight:600;margin-top:8px;letter-spacing:-0.2px}
+.benefit-amt{font-family:'DM Mono',monospace;color:var(--text);font-size:14px;font-weight:600;letter-spacing:-0.2px}
 .badge-pill{display:inline-flex;align-items:center;gap:4px;border-radius:6px;padding:3px 9px;font-size:10.5px;font-weight:600;letter-spacing:0.1px}
 .badge-unaware{background:#EDE8E2;color:#7A7068}
 .badge-aware{background:var(--warning-light);color:#92400e}
@@ -119,8 +123,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text)}
 <nav id="sidebar">
   <div class="sidebar-logo" style="display:flex;align-items:center;gap:10px"><img src="docs/favicon.png" width="28" height="28" style="border-radius:5px;flex-shrink:0"><div><h1>Canada Benefits Tracker</h1><p>v1.3</p></div></div>
   <div class="lang-switcher">
-    <button id="btn-lang-en" class="lang-btn" onclick="setLang('en')">EN</button>
-    <button id="btn-lang-zh" class="lang-btn" onclick="setLang('zh')">中文</button>
+    <div class="lang-pill">
+      <button id="btn-lang-en" class="lang-btn" onclick="setLang('en')">EN</button>
+      <button id="btn-lang-zh" class="lang-btn" onclick="setLang('zh')">中文</button>
+    </div>
   </div>
   <div class="nav">
     <div class="nav-item active" data-page="dashboard" onclick="navigate('dashboard')">📊 <span id="nav-dashboard"></span></div>
@@ -130,7 +136,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text)}
     <div class="nav-item" data-page="advisor" onclick="navigate('advisor')">🩺 <span id="nav-advisor"></span></div>
     <div class="nav-item" data-page="settings" onclick="navigate('settings')">⚙️ <span id="nav-settings"></span></div>
   </div>
-  <div class="sidebar-footer"><div style="font-size:12px" id="sidebar-status"></div></div>
+  <div class="sidebar-footer" id="sidebar-footer"></div>
 </nav>
 <div id="main">
   <header id="header">
@@ -268,6 +274,11 @@ en: {
   sidebar_received_count:'Receiving ',
   sidebar_items:' benefits',
   sidebar_profile_not_set:'Profile not set up',
+  sidebar_setup_title:'Set up your profile',
+  sidebar_setup_sub:'Unlock your personalized benefits',
+  sidebar_profile_label:'YOUR PROFILE',
+  sidebar_children:' children',
+  sidebar_receiving:'receiving',
   ai_configure:'Configure API Key in Settings →',
   ai_free_note:'Free forever · Your key connects directly to AI provider',
   ai_city_scan_title:'🏙️ Scan {city} for local benefits',
@@ -424,6 +435,11 @@ zh: {
   sidebar_received_count:'已领取 ',
   sidebar_items:' 项',
   sidebar_profile_not_set:'未设置档案',
+  sidebar_setup_title:'填写档案',
+  sidebar_setup_sub:'解锁你的个人福利计算',
+  sidebar_profile_label:'你的档案',
+  sidebar_children:' 个孩子',
+  sidebar_receiving:'项已领取',
   ai_configure:'前往设置配置 API Key →',
   ai_free_note:'永久免费 · 你的Key直连AI服务商',
   ai_city_scan_title:'🏙️ 扫描 {city} 的专属福利',
@@ -817,12 +833,12 @@ function renderDashboard(){
     return `<div class="benefit-card" onclick="openBenefit('${b.id}')">
       <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:8px">
         <div style="flex:1;min-width:0">
-          <div class="benefit-name" style="font-size:14px;margin-bottom:3px">${name}</div>
+          <div class="benefit-name" style="margin-bottom:3px">${name}</div>
           <div class="benefit-en">${sub}</div>
         </div>
         ${scopeTag(b)}
       </div>
-      <div class="benefit-amt" style="margin-top:0;margin-bottom:10px">${estimateAmount(b.id,profile)}</div>
+      <div class="benefit-amt" style="margin-bottom:10px">${estimateAmount(b.id,profile)}</div>
       <div><span class="badge-pill ${badge.cls}">${badge.icon} ${statusLabel(stKey)}</span></div>
     </div>`;
   }).join('');
@@ -1616,16 +1632,25 @@ function updateHeaderProgress(){
 }
 
 function updateSidebar(){
-  const got=Object.values(benefitStatus).filter(v=>v===t('status_receiving')).length;
+  const got=Object.values(benefitStatus).filter(v=>v==='receiving').length;
   const hasPR=profile.prStatus==='yes';
-  let status='';
+  const footer=document.getElementById('sidebar-footer');
+  if(!footer)return;
   if(hasPR){
-    status=getCurrentProvince()+t('sidebar_status_pr');
-    status+=got?t('sidebar_received_count')+got+t('sidebar_items'):t('sidebar_click_start');
+    const province=getCurrentProvince()||'';
+    const income=profile.income2024?'$'+Number(profile.income2024).toLocaleString():'—';
+    const children=profile.hasChild==='yes'?(profile.numChildren||'1')+t('sidebar_children'):'';
+    footer.innerHTML=`<div class="sidebar-summary">
+      <div style="font-size:10px;color:#8A7E74;font-weight:700;text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px">${t('sidebar_profile_label')}</div>
+      <div>${province} · ${income}/yr${children?'<br>'+children:''}</div>
+      ${got?`<div style="margin-top:5px;color:#4ade80;font-size:11px">✅ ${got} ${t('sidebar_receiving')}</div>`:''}
+    </div>`;
   } else {
-    status=t('sidebar_profile_not_set');
+    footer.innerHTML=`<div class="sidebar-cta" onclick="navigate('profile')">
+      <div style="font-size:11px;font-weight:700;color:#F5F1EC;margin-bottom:3px">📋 ${t('sidebar_setup_title')}</div>
+      <div style="font-size:10.5px;color:#9E948C">${t('sidebar_setup_sub')} →</div>
+    </div>`;
   }
-  document.getElementById('sidebar-status').textContent=status;
 }
 
 function showToast(msg){

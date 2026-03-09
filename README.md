@@ -9,7 +9,7 @@
 [![Languages](https://img.shields.io/badge/lang-EN%20%7C%20中文-red)]()
 [![GitHub Pages](https://github.com/tuna-chin/maple-benefits/actions/workflows/pages/pages-build-deployment/badge.svg)](https://tuna-chin.github.io/maple-benefits)
 
-**Canada PR Life Tracker** — A free, open-source tool for new Canadian permanent residents to discover, calculate, and track federal and provincial benefits.
+**Canada Benefits Tracker** — A free, open-source tool for new Canadian permanent residents to discover, calculate, and track federal and provincial benefits.
 
 🌐 Bilingual (English / 中文) · 🇨🇦 [**Try it now → tuna-chin.github.io/maple-benefits**](https://tuna-chin.github.io/maple-benefits)
 
