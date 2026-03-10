@@ -20,11 +20,18 @@
       "max": "$7,997（<6岁）/ $6,748（6-17岁）/年",
       "url": "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/canada-child-benefit.html",
       "desc": "为有孩子的家庭提供免税月度补贴，基于收入和孩子数量计算。",
+      "desc_en": "Tax-free monthly payments for families with children under 18, calculated based on income and number of children.",
       "conditions": [
         "已成为永久居民或公民",
         "已完成报税",
         "是孩子的主要抚养人",
         "孩子未满18岁"
+      ],
+      "conditions_en": [
+        "Permanent resident or citizen",
+        "Filed taxes",
+        "Primary caregiver",
+        "Children under 18"
       ],
       "calculation": {
         "maxUnder6PerChild": 7997,
@@ -32,10 +39,22 @@
         "phaseOut1Threshold": 37487,
         "phaseOut2Threshold": 81222,
         "phaseOutRates": {
-          "1child": { "tier1": 0.07, "tier2": 0.032 },
-          "2children": { "tier1": 0.135, "tier2": 0.057 },
-          "3children": { "tier1": 0.19, "tier2": 0.08 },
-          "4plusChildren": { "tier1": 0.23, "tier2": 0.095 }
+          "1child": {
+            "tier1": 0.07,
+            "tier2": 0.032
+          },
+          "2children": {
+            "tier1": 0.135,
+            "tier2": 0.057
+          },
+          "3children": {
+            "tier1": 0.19,
+            "tier2": 0.08
+          },
+          "4plusChildren": {
+            "tier1": 0.23,
+            "tier2": 0.095
+          }
         },
         "nextYearAmounts": {
           "effectiveJuly": "2026-07",
@@ -49,17 +68,23 @@
     {
       "id": "F2",
       "name": "GST/HST 退税",
-      "en": "GST/HST Credit (→ CGEB from July 2026)",
+      "en": "GST/HST Credit",
       "cat": "federal",
       "scope": "federal",
       "dataAsOf": "2025-26",
       "max": "$533（单人）/ $698（夫妻）/年",
       "url": "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/gst-hst-credit/get-credit.html",
       "desc": "低中收入个人和家庭的季度免税退税，自动通过报税申请。2026年7月起改名为Canada Groceries and Essentials Benefit (CGEB) 并增加25%。",
+      "desc_en": "Quarterly tax-free payments for low- and moderate-income individuals and families. Auto-applied via tax filing. Increases 25% in July 2026.",
       "conditions": [
         "已完成报税",
         "调整后家庭净收入低于约$65,000（家庭因孩子数量而异）",
         "加拿大居民"
+      ],
+      "conditions_en": [
+        "Filed taxes",
+        "Adjusted family net income below ~$65,000",
+        "Canadian resident"
       ],
       "calculation": {
         "baseSingle": 533,
@@ -69,7 +94,12 @@
         "singleLowIncomePhaseInStart": 11337,
         "phaseOutThreshold": 44324,
         "phaseOutRate": 0.05,
-        "paymentDates": ["Jan 5", "Apr 5", "Jul 5", "Oct 5"],
+        "paymentDates": [
+          "Jan 5",
+          "Apr 5",
+          "Jul 5",
+          "Oct 5"
+        ],
         "CGEB": {
           "announcement": "2026-01-26",
           "oneTimeTopUp": "50% of 2025-26 entitlement",
@@ -77,7 +107,8 @@
           "permanentIncrease": "25% for 5 years",
           "effectiveJuly": "2026-07"
         }
-      }
+      },
+      "notes": "Renamed to Canada Groceries & Essentials Benefit (CGEB) from July 2026 with +25% permanent increase"
     },
     {
       "id": "F3",
@@ -89,7 +120,19 @@
       "max": "最高 $1,633（单身）/ $2,813（有家属）/年",
       "url": "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/canada-workers-benefit.html",
       "desc": "为低收入在职人员提供的退税福利，可提前预支。",
-      "conditions": ["有工作收入", "收入低于门槛", "年满19岁", "加拿大居民"],
+      "desc_en": "Refundable tax credit for low-income working individuals and families, with advance payment option.",
+      "conditions": [
+        "有工作收入",
+        "收入低于门槛",
+        "年满19岁",
+        "加拿大居民"
+      ],
+      "conditions_en": [
+        "Employment income",
+        "Income below threshold",
+        "Age 19+",
+        "Canadian resident"
+      ],
       "calculation": {
         "maxSingle": 1633,
         "maxWithDependants": 2813,
@@ -109,10 +152,16 @@
       "max": "按项目",
       "url": "https://www.canada.ca/en/services/benefits/dental/dental-care-plan/apply.html",
       "desc": "为无雇主牙科保险的低收入人群提供牙科保障。",
+      "desc_en": "Dental coverage for low-income individuals without employer dental insurance.",
       "conditions": [
         "无雇主提供牙科保险",
         "家庭净收入低于 $90,000",
         "已完成报税"
+      ],
+      "conditions_en": [
+        "No employer dental insurance",
+        "Family net income below $90,000",
+        "Filed taxes"
       ],
       "calculation": {
         "incomeThreshold": 90000,
@@ -129,7 +178,13 @@
       "max": "55% 收入最高52周",
       "url": "https://www.canada.ca/en/services/benefits/ei/ei-maternity-parental/apply.html",
       "desc": "为新父母提供收入替代。",
-      "conditions": ["有可保就业收入"],
+      "desc_en": "Income replacement for new parents.",
+      "conditions": [
+        "有可保就业收入"
+      ],
+      "conditions_en": [
+        "Insurable employment income"
+      ],
       "calculation": {
         "rate": 0.55,
         "maxWeeklyBenefit": 668,
@@ -146,7 +201,16 @@
       "max": "最高 $2,000/孩子（终生）",
       "url": "https://www.canada.ca/en/services/benefits/education/education-savings/canada-learning-bond.html",
       "desc": "为低收入家庭孩子RESP免费注入最高$2000，无需自己供款。",
-      "conditions": ["已开RESP", "家庭收入低于门槛", "孩子符合条件"],
+      "desc_en": "Free government contribution of up to $2,000 into RESP for low-income families.",
+      "conditions": [
+        "已开RESP",
+        "家庭收入低于门槛",
+        "孩子符合条件"
+      ],
+      "conditions_en": [
+        "RESP account open",
+        "Child qualifies"
+      ],
       "calculation": {
         "lifetimeMax": 2000,
         "incomeThreshold": 57375
@@ -162,9 +226,17 @@
       "max": "20% 配比最高 $500/年",
       "url": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/registered-education-savings-plans-resps/canada-education-savings-programs-cesp/canada-education-savings-grant-cesg.html",
       "desc": "RESP供款可获政府20%配比补贴，每年最高$500，终生最高$7,200。",
-      "conditions": ["已开RESP", "孩子未满18岁"],
+      "desc_en": "Government matches 20% of RESP contributions up to $500/yr per child.",
+      "conditions": [
+        "已开RESP",
+        "孩子未满18岁"
+      ],
+      "conditions_en": [
+        "RESP account open",
+        "Child under 18"
+      ],
       "calculation": {
-        "matchRate": 0.20,
+        "matchRate": 0.2,
         "annualMax": 500,
         "lifetimeMax": 7200
       }
@@ -179,8 +251,16 @@
       "max": "影响退休金（因人而异）",
       "url": "https://www.canada.ca/en/services/benefits/publicpensions/cpp/cpp-split-credits.html",
       "desc": "离婚后可申请在婚期间的CPP积分平均分割，影响未来退休金。",
-      "conditions": ["离婚/分居"],
-      "calculation": { "type": "variable" }
+      "desc_en": "After divorce/separation, CPP contributions during marriage can be split equally.",
+      "conditions": [
+        "离婚/分居"
+      ],
+      "conditions_en": [
+        "Divorced or separated"
+      ],
+      "calculation": {
+        "type": "variable"
+      }
     },
     {
       "id": "F9",
@@ -192,7 +272,16 @@
       "max": "税收抵免约 $2,200/年",
       "url": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-30400-amount-eligible-dependant.html",
       "desc": "单亲独立抚养孩子可申请受抚养人税收抵免，相当于联邦税节省约$2,200。",
-      "conditions": ["单亲/分居", "孩子同住", "非共同监护（或为主要监护人）"],
+      "desc_en": "Single parents can claim this federal tax credit for supporting a dependant.",
+      "conditions": [
+        "单亲/分居",
+        "孩子同住",
+        "非共同监护（或为主要监护人）"
+      ],
+      "conditions_en": [
+        "Single parent or separated",
+        "Child living with you"
+      ],
       "calculation": {
         "estimatedAnnualTaxSaving": 2200
       }
@@ -207,12 +296,22 @@
       "max": "最高 $200/月（$2,400/年）",
       "url": "https://www.canada.ca/en/services/benefits/disability/canada-disability-benefit.html",
       "desc": "持残障税收抵免(DTC)批准的低收入人群月度补贴，2025年6月起开放申请。",
-      "conditions": ["已获批DTC", "18-64岁", "已报税"],
+      "desc_en": "Monthly payments for low-income working-age Canadians with approved DTC.",
+      "conditions": [
+        "已获批DTC",
+        "18-64岁",
+        "已报税"
+      ],
+      "conditions_en": [
+        "Approved DTC",
+        "Age 18-64",
+        "Filed taxes"
+      ],
       "calculation": {
         "maxMonthly": 200,
         "maxAnnual": 2400,
         "incomeThreshold": 23000,
-        "phaseOutRate": 0.20,
+        "phaseOutRate": 0.2,
         "fullPhaseOutIncome": 35000
       }
     }

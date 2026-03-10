@@ -24,7 +24,17 @@
       "max": "第1孩 $1,750 + 每增1孩 $1,100/年；单亲+$500",
       "url": "https://www2.gov.bc.ca/gov/content/family-social-supports/affordability/family-benefit",
       "desc": "BC省有孩家庭补贴，随CCB一起每月发放。2025年7月起bonus结束，回归常规金额。",
-      "conditions": ["BC居民", "有18岁以下孩子", "已报税"],
+      "desc_en": "Monthly tax-free payments for BC families with children.",
+      "conditions": [
+        "BC居民",
+        "有18岁以下孩子",
+        "已报税"
+      ],
+      "conditions_en": [
+        "BC resident",
+        "Have children",
+        "Filed taxes"
+      ],
       "calculation": {
         "firstChildAnnual": 1750,
         "additionalChildAnnual": 1100,
@@ -48,7 +58,16 @@
       "max": "最高 $1,250/孩子/月",
       "url": "https://www2.gov.bc.ca/gov/content/family-social-supports/caring-for-young-children/childcarebc-programs/child-care-benefit/information-for-families/apply-funding",
       "desc": "BC省托儿费用补贴，收入门槛$111,000以下家庭可申请，按使用持牌托儿计算。",
-      "conditions": ["BC居民", "使用持牌托儿机构", "家庭收入低于$111,000"],
+      "desc_en": "BC subsidy to reduce childcare costs for eligible families.",
+      "conditions": [
+        "BC居民",
+        "使用持牌托儿机构",
+        "家庭收入低于$111,000"
+      ],
+      "conditions_en": [
+        "BC resident",
+        "Licensed childcare"
+      ],
       "calculation": {
         "maxMonthlyPerChild": 1250,
         "incomeThreshold": 111000,
@@ -65,7 +84,13 @@
       "max": "最高 $350/孩子/月",
       "url": "https://www2.gov.bc.ca/gov/content/family-social-supports/caring-for-young-children/childcarebc-programs/child-care-fee-reduction-initiative-provider-opt-in-status",
       "desc": "已加入CCFRI的托儿中心自动减免，无需家庭申请，由中心直接降低收费。",
-      "conditions": ["使用已加入CCFRI的持牌托儿中心"],
+      "desc_en": "Automatic fee reduction at licensed childcare centres enrolled in CCFRI.",
+      "conditions": [
+        "使用已加入CCFRI的持牌托儿中心"
+      ],
+      "conditions_en": [
+        "Using a CCFRI-enrolled centre"
+      ],
       "calculation": {
         "maxMonthlyPerChild": 350,
         "type": "automatic-at-provider"
@@ -81,7 +106,18 @@
       "max": "平均 $700/月（基于租金与收入差距）",
       "url": "https://www.bchousing.org/housing-assistance/rental-assistance-programs/RAP",
       "desc": "BC Housing提供给低收入有孩子租房家庭的月度补贴，帮助填补租金缺口。",
-      "conditions": ["BC居民", "租住私人市场", "有18岁以下孩子", "家庭收入低于$60,000"],
+      "desc_en": "BC Housing rental assistance for low-income working families with children.",
+      "conditions": [
+        "BC居民",
+        "租住私人市场",
+        "有18岁以下孩子",
+        "家庭收入低于$60,000"
+      ],
+      "conditions_en": [
+        "BC resident",
+        "Renting",
+        "Have children"
+      ],
       "calculation": {
         "incomeThreshold": 60000,
         "maxMonthly": 700,
@@ -98,8 +134,20 @@
       "max": "按情况（核心住房需求）",
       "url": "https://www.bchousing.org/housing-assistance/rental-assistance-programs/CBCHB",
       "desc": "针对处于核心住房需求的低收入租户，补贴金额基于个人情况评估。",
-      "conditions": ["BC居民", "低收入", "处于核心住房需求（租金超收入30%或住房条件不适）"],
-      "calculation": { "type": "variable", "incomeThreshold": 45000 }
+      "desc_en": "Targeted housing benefit for low-income renters in core housing need.",
+      "conditions": [
+        "BC居民",
+        "低收入",
+        "处于核心住房需求（租金超收入30%或住房条件不适）"
+      ],
+      "conditions_en": [
+        "BC resident",
+        "Low income"
+      ],
+      "calculation": {
+        "type": "variable",
+        "incomeThreshold": 45000
+      }
     },
     {
       "id": "P6",
@@ -111,8 +159,16 @@
       "max": "MSP注册免费（省级医疗）",
       "url": "https://www2.gov.bc.ca/gov/content/health/health-drug-coverage/msp/bc-residents/eligibility-and-enrolment/how-to-enrol",
       "desc": "注册MSP获得BC省医疗覆盖。保费已于2020年取消，注册免费。低收入可获额外补充福利。",
-      "conditions": ["BC居民"],
-      "calculation": { "type": "free-enrollment" }
+      "desc_en": "Register for BC Medical Services Plan. Premiums eliminated; supplementary benefits for low income.",
+      "conditions": [
+        "BC居民"
+      ],
+      "conditions_en": [
+        "BC resident"
+      ],
+      "calculation": {
+        "type": "free-enrollment"
+      }
     },
     {
       "id": "P7",
@@ -124,8 +180,18 @@
       "max": "牙科 + 眼镜（按项目）",
       "url": "https://www2.gov.bc.ca/gov/content/governments/policies-for-government/bcea-policy-and-procedure-manual/health-supplements-and-programs/healthy-kids",
       "desc": "为未参加牙科保险的低收入家庭孩子提供基本牙科和眼镜支持。",
-      "conditions": ["19岁以下孩子", "家庭低收入", "未有雇主保险覆盖"],
-      "calculation": { "type": "service-based" }
+      "desc_en": "Basic dental and vision support for children in low-income families.",
+      "conditions": [
+        "19岁以下孩子",
+        "家庭低收入",
+        "未有雇主保险覆盖"
+      ],
+      "conditions_en": [
+        "Under 19"
+      ],
+      "calculation": {
+        "type": "service-based"
+      }
     },
     {
       "id": "P8",
@@ -137,7 +203,17 @@
       "max": "最高 $1,060/月（$560生活 + $500住房）",
       "url": "https://www2.gov.bc.ca/gov/content/family-social-supports/income-assistance/apply-for-assistance",
       "desc": "BC省为无就业收入的低收入人士提供的基本生活援助。",
-      "conditions": ["BC居民", "无就业收入", "家庭收入低于$20,000"],
+      "desc_en": "Basic income support for low-income BC residents who are not employed.",
+      "conditions": [
+        "BC居民",
+        "无就业收入",
+        "家庭收入低于$20,000"
+      ],
+      "conditions_en": [
+        "BC resident",
+        "Low income",
+        "Not employed"
+      ],
       "calculation": {
         "maxMonthly": 1060,
         "supportComponent": 560,
@@ -155,7 +231,14 @@
       "max": "最高 $400/年",
       "url": "https://kidsportcanada.ca/british-columbia/",
       "desc": "为低收入家庭孩子参加有组织体育运动提供费用补贴。",
-      "conditions": ["18岁以下孩子", "家庭收入低于$60,000"],
+      "desc_en": "Subsidizes sports registration fees for children in low-income families.",
+      "conditions": [
+        "18岁以下孩子",
+        "家庭收入低于$60,000"
+      ],
+      "conditions_en": [
+        "Low income with children"
+      ],
       "calculation": {
         "maxAnnual": 400,
         "incomeThreshold": 60000
@@ -171,7 +254,18 @@
       "max": "最高 $400/年",
       "url": "https://www2.gov.bc.ca/gov/content/taxes/income-taxes/personal/credits/renters-tax-credit",
       "desc": "BC省低收入租房者报税时可申领的税收抵免，填写BC479表格。",
-      "conditions": ["BC居民", "租房", "已报税", "家庭收入低于$84,764"],
+      "desc_en": "Refundable tax credit for low-income BC renters, claimed at tax filing.",
+      "conditions": [
+        "BC居民",
+        "租房",
+        "已报税",
+        "家庭收入低于$84,764"
+      ],
+      "conditions_en": [
+        "BC resident",
+        "Renting",
+        "Filed taxes"
+      ],
       "calculation": {
         "maxAnnual": 400,
         "phaseOutStart": 64764,
