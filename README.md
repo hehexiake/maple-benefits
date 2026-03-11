@@ -13,6 +13,8 @@
 
 🌐 Bilingual (English / 中文) · 🇨🇦 [**Try it now → tuna-chin.github.io/maple-benefits**](https://tuna-chin.github.io/maple-benefits)
 
+[![Welcome page preview](docs/screenshots/welcome.png)](https://tuna-chin.github.io/maple-benefits)
+
 ---
 
 ## Table of Contents
@@ -32,9 +34,9 @@
 
 ## Screenshots
 
-| Dashboard | Benefits Library | Scenario Diagnosis |
-|:---------:|:----------------:|:-----------------:|
-| ![Dashboard](docs/screenshots/dashboard.png) | ![Library](docs/screenshots/library.png) | ![Advisor](docs/screenshots/advisor.png) |
+| Welcome | Dashboard | Benefits Library |
+|:-------:|:---------:|:----------------:|
+| ![Welcome](docs/screenshots/welcome.png) | ![Dashboard](docs/screenshots/dashboard.png) | ![Library](docs/screenshots/library.png) |
 
 ---
 
