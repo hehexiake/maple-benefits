@@ -128,6 +128,32 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text)}
 .modal-box{width:min(560px,92%);background:#fff;border-radius:16px;padding:24px;box-shadow:0 24px 64px rgba(0,0,0,.22)}
 @media(max-width:900px){.grid-4{grid-template-columns:1fr 1fr}.grid-3{grid-template-columns:1fr 1fr}.grid-2{grid-template-columns:1fr}.lib{grid-template-columns:1fr}.stats-hero-grid{grid-template-columns:1fr}.stats-mini{flex-direction:row}}
 @media(max-width:768px){#sidebar{transform:translateX(-100%)}#sidebar.open{transform:translateX(0)}#main{margin-left:0}.content{padding:14px}.grid-4,.grid-3{grid-template-columns:1fr}.stats-hero-grid{grid-template-columns:1fr}.stats-mini{flex-direction:column}}
+/* ---- Welcome Page ---- */
+#welcome-page{position:fixed;inset:0;background:var(--bg);z-index:9000;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;overflow-y:auto}
+.welcome-inner{width:100%;max-width:720px;text-align:center}
+.welcome-logo{width:64px;height:64px;border-radius:14px;margin:0 auto 16px}
+.welcome-title{font-size:36px;font-weight:900;letter-spacing:-1.5px;color:var(--text);line-height:1.1}
+.welcome-title span{color:var(--primary)}
+.welcome-sub{font-size:16px;color:var(--muted);margin-top:10px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.6}
+.welcome-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:28px 0}
+.welcome-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 14px;text-align:center}
+.welcome-card .wc-icon{font-size:28px;margin-bottom:8px}
+.welcome-card .wc-val{font-size:22px;font-weight:900;color:var(--primary);letter-spacing:-0.5px}
+.welcome-card .wc-label{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.4}
+.welcome-cta{display:flex;flex-direction:column;align-items:center;gap:10px}
+.welcome-cta .btn-hero{font-size:16px;padding:14px 32px;border-radius:12px;font-weight:800}
+.welcome-cta .btn-skip{font-size:13px;color:var(--muted);background:none;border:none;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.welcome-lang{position:absolute;top:16px;right:16px;display:flex;gap:6px}
+.welcome-lang button{padding:5px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);font-size:12px;font-weight:700;cursor:pointer}
+.welcome-lang button.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+.welcome-badge{display:inline-flex;align-items:center;gap:5px;background:var(--success-light);color:#065f46;border-radius:20px;padding:4px 12px;font-size:12px;font-weight:700;margin-bottom:16px}
+/* Profile-empty dashboard banner */
+.profile-empty-banner{background:var(--warning-light);border:1px solid #fde68a;border-radius:12px;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
+.profile-empty-banner .peb-text{font-size:13px;color:#78350f;font-weight:600}
+.profile-empty-banner .peb-sub{font-size:11.5px;color:#92400e;font-weight:400;margin-top:2px}
+.profile-empty-banner .btn-peb{flex-shrink:0;background:#d97706;color:#fff;border:none;border-radius:8px;padding:7px 14px;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap}
+.profile-empty-banner .btn-peb:hover{background:#b45309}
+@media(max-width:600px){.welcome-cards{grid-template-columns:1fr}.welcome-title{font-size:26px}.profile-empty-banner{flex-direction:column;align-items:flex-start}}
 </style>
 </head>
 <body>
@@ -379,6 +405,17 @@ en: {
   section_about:'About', section_model:'Model Preference', section_key_storage:'Key Storage',
   section_data:'Data Management',
   ai_analyzing:'Analyzing…',
+  welcome_badge:'🍁 Free · No account · Data stays on device',
+  welcome_title:'Stop leaving <span>Canadian money</span> unclaimed',
+  welcome_sub:'Track your federal and provincial benefits — know what you qualify for, what you\'ve missed, and what to do next.',
+  welcome_card1_val:'20', welcome_card1_label:'Benefits tracked\nFederal + BC',
+  welcome_card2_val:'$15k+', welcome_card2_label:'Potential per year\nFor eligible families',
+  welcome_card3_val:'5 min', welcome_card3_label:'To set up your profile\nAnd unlock your estimate',
+  welcome_cta_primary:'Set up my profile →',
+  welcome_cta_skip:'Explore first',
+  profile_banner_text:'Fill in your profile to see personalized eligibility and estimated amounts',
+  profile_banner_sub:'Takes about 5 minutes',
+  profile_banner_btn:'Fill profile →',
 },
 zh: {
   nav_dashboard:'看板首页', nav_profile:'我的档案', nav_alerts:'更新提醒',
@@ -540,6 +577,17 @@ zh: {
   section_about:'关于', section_model:'模型偏好顺序', section_key_storage:'Key存储方式',
   section_data:'数据管理',
   ai_analyzing:'AI分析中…',
+  welcome_badge:'🍁 免费 · 无需注册 · 数据留在本地',
+  welcome_title:'别让加拿大<span>福利</span>白白流走',
+  welcome_sub:'追踪联邦和省级福利——知道你能领什么、漏了什么、该怎么做。',
+  welcome_card1_val:'20项', welcome_card1_label:'福利全覆盖\n联邦 + BC省',
+  welcome_card2_val:'$15,000+', welcome_card2_label:'符合条件家庭\n每年可领上限',
+  welcome_card3_val:'5分钟', welcome_card3_label:'填好档案\n解锁你的专属估算',
+  welcome_cta_primary:'填写我的档案 →',
+  welcome_cta_skip:'先逛逛',
+  profile_banner_text:'填写档案后才能看到个性化资格判断和金额估算',
+  profile_banner_sub:'大约需要5分钟',
+  profile_banner_btn:'填写档案 →',
 }
 };
 
@@ -770,13 +818,26 @@ function PAGE_META(page){
     alerts:{title:'page_alerts_title',sub:'page_alerts_sub'},
     library:{title:'page_library_title',sub:'page_library_sub'},
     advisor:{title:'page_advisor_title',sub:'page_advisor_sub'},
-    settings:{title:'page_settings_title',sub:'page_settings_sub'}
+    settings:{title:'page_settings_title',sub:'page_settings_sub'},
+    welcome:{title:'page_dashboard_title',sub:'page_dashboard_sub'}
   };
   const p=m[page]||m.dashboard;
   return{title:t(p.title),sub:t(p.sub)};
 }
 
 function navigate(page){
+  // Welcome page: full-screen overlay, bypass normal routing
+  if(page==='welcome'){
+    currentPage='welcome';
+    let wp=document.getElementById('welcome-page');
+    if(!wp){wp=document.createElement('div');wp.id='welcome-page';document.body.appendChild(wp);}
+    wp.innerHTML=renderWelcome();
+    wp.style.display='flex';
+    return;
+  }
+  // Hide welcome overlay if visible
+  const wp=document.getElementById('welcome-page');
+  if(wp)wp.style.display='none';
   currentPage=page;
   document.querySelectorAll('.nav-item').forEach(el=>el.classList.toggle('active',el.dataset.page===page));
   const meta=PAGE_META(page);
@@ -809,6 +870,40 @@ function getStatusBadge(key){
 }
 // Helper: translate a status key to current-language label
 function statusLabel(key){return t('status_'+(key||'unaware'));}
+
+/* ============================================================
+   WELCOME PAGE
+   ============================================================ */
+function renderWelcome(){
+  const lang=LANG.current;
+  const badge=t('welcome_badge');
+  const title=t('welcome_title');
+  const sub=t('welcome_sub');
+  return `
+  <div class="welcome-lang">
+    <button class="${lang==='en'?'active':''}" onclick="setLang('en');document.getElementById('welcome-page').innerHTML=renderWelcome()">EN</button>
+    <button class="${lang==='zh'?'active':''}" onclick="setLang('zh');document.getElementById('welcome-page').innerHTML=renderWelcome()">中文</button>
+  </div>
+  <div class="welcome-inner">
+    <img class="welcome-logo" src="docs/logo.png" alt="logo">
+    <div class="welcome-badge">${badge}</div>
+    <h1 class="welcome-title">${title}</h1>
+    <p class="welcome-sub">${sub}</p>
+    <div class="welcome-cards">
+      <div class="welcome-card"><div class="wc-icon">🍁</div><div class="wc-val">${t('welcome_card1_val')}</div><div class="wc-label">${t('welcome_card1_label').replace('\n','<br>')}</div></div>
+      <div class="welcome-card"><div class="wc-icon">💰</div><div class="wc-val">${t('welcome_card2_val')}</div><div class="wc-label">${t('welcome_card2_label').replace('\n','<br>')}</div></div>
+      <div class="welcome-card"><div class="wc-icon">⚡</div><div class="wc-val">${t('welcome_card3_val')}</div><div class="wc-label">${t('welcome_card3_label').replace('\n','<br>')}</div></div>
+    </div>
+    <div class="welcome-cta">
+      <button class="btn btn-primary btn-hero" onclick="markWelcomed();navigate('profile')">${t('welcome_cta_primary')}</button>
+      <button class="btn-skip" onclick="markWelcomed();navigate('dashboard')">${t('welcome_cta_skip')}</button>
+    </div>
+  </div>`;
+}
+
+function markWelcomed(){
+  localStorage.setItem('prt_welcomed','1');
+}
 
 /* ============================================================
    DASHBOARD
@@ -883,11 +978,17 @@ function renderDashboard(){
     </div>
   </div>`;
 
+  const profileEmpty=!profile.province&&!profile.prStatus&&!profile.income2024;
+  const profileBanner=profileEmpty?`<div class="profile-empty-banner">
+    <div><div class="peb-text">${t('profile_banner_text')}</div><div class="peb-sub">${t('profile_banner_sub')}</div></div>
+    <button class="btn-peb" onclick="navigate('profile')">${t('profile_banner_btn')}</button>
+  </div>`:'';
+
   const banner=`<div class="card" style="margin-bottom:14px;background:#eff6ff;border-color:#bfdbfe">
     <div style="font-size:12px;color:#1e3a8a;line-height:1.6">${t('banner_data_year')}<br>${t('banner_cgeb_update')}</div>
   </div>`;
 
-  return banner+stats
+  return profileBanner+banner+stats
     +`<div class="card" style="margin-top:14px">
         <div style="font-size:15px;font-weight:700;margin-bottom:10px">${t('cards_title')}</div>
         <div class="grid-3">${cards}</div>
@@ -1705,7 +1806,8 @@ function init(){
   updateStaticNav();
   updateHeaderProgress();
   updateSidebar();
-  navigate('dashboard');
+  const welcomed=localStorage.getItem('prt_welcomed');
+  navigate(welcomed?'dashboard':'welcome');
   checkMobile();
 }
 init();
