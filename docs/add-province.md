@@ -25,12 +25,13 @@ Do not use blog posts or news articles as primary sources.
 
 ## Step 3: Fill in the JSON
 
-Open your province file and fill in each benefit following the [SCHEMA](SCHEMA.md).
+Open your province file and fill in each benefit following the [data schema](../data/SCHEMA.md).
 
 Minimum required for each benefit:
 ```json
 {
   "id": "ON-P1",
+  "cat": "ontario",
   "name": "中文福利名称",
   "en": "English Benefit Name",
   "scope": "provincial",

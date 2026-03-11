@@ -123,6 +123,11 @@ Data is updated annually to align with Canada's benefit year (July–June).
 
 ## Changelog
 
+### v1.3.1 (2026-03-11)
+- **Welcome page** — first-time visitors now see a full-screen onboarding page (logo, value cards, dual badge for AI-Powered + Open Source, CTA to profile). Returning users go straight to dashboard.
+- **Profile-empty banner** — dashboard shows a persistent amber banner guiding new users to fill their profile when no data is entered yet. Disappears automatically once any profile field is filled.
+- **Logo → welcome** — clicking the sidebar logo from any page returns to the welcome screen.
+
 ### v1.3 (2026-03)
 - Full bilingual support (English default + 中文 toggle, persists in localStorage)
 - All benefit status tracking now uses internal keys — language-safe and migration-resistant
@@ -132,6 +137,10 @@ Data is updated annually to align with Canada's benefit year (July–June).
 - Benefit detail view uses language-appropriate `desc_en` / `conditions_en` fields
 - Fixed: `dismissAlert`, `selectBenefit`, `toggleStep` crash on interaction
 - Fixed: timeline and CCB alert logic broken after language switch
+- Fixed: `renderPage()` → `navigate()` crash on initial render
+- Fixed: F3 CWB eligibility threshold (single: $37,742 not $49,393)
+- Fixed: F2 income eligibility gate missing for GST/HST Credit
+- Fixed: P4 RAP monthly unit label missing in EN mode
 
 ### v1.2.2
 - Initial public release

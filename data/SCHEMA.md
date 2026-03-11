@@ -41,7 +41,7 @@ data/
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `id` | string | Unique ID. Federal: `F1`–`F99`. Provincial: `[CODE]-P1` e.g. `ON-P1` |
+| `id` | string | Unique ID. Federal: `F1`–`F99`. Provincial: `P1`–`P99` (scoped per file, e.g. BC uses `P1`; if contributing a new province, use the same `P1`–`Pn` convention within that file) |
 | `name` | string | Chinese name (displayed in 中文 mode) |
 | `en` | string | English name (displayed in EN mode) |
 | `scope` | `"federal"` \| `"provincial"` | |

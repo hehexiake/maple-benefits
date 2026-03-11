@@ -3,8 +3,11 @@
     "scope": "provincial",
     "province": "ON",
     "provinceName": "Ontario",
+    "benefitYear": "2025-26",
+    "basedOn": "2024 tax return",
     "status": "coming-soon",
     "lastVerified": null,
+    "sources": [],
     "notes": "Stub file. Ontario data contribution welcome — see CONTRIBUTING.md"
   },
   "benefits": [

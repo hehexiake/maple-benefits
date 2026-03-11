@@ -14,10 +14,15 @@
 3. 按 `Cmd + -` 缩小一级，让界面更完整（或保持默认）
 4. 窗口大小调整为约 **1200 × 750**，不要全屏
 5. **清空档案数据**：进入"我的档案"，确认所有字段都是空的/未设置状态
-   - 如果之前填过数据，打开浏览器控制台（`Cmd+Option+J`），输入 `localStorage.clear()` 回车，刷新页面
+   - 如果之前填过数据，打开浏览器控制台（`Cmd+Option+J`），输入以下命令回车，刷新页面：
+     ```js
+     localStorage.clear(); // 清空所有数据
+     localStorage.setItem('prt_welcomed', '1'); // 跳过 welcome 页，直接进 dashboard
+     ```
+   - ⚠️ **v1.3.1 变更**：直接 `localStorage.clear()` 后刷新会先出现 welcome 页。如果视频想从 dashboard 直接开始，需要补设 `prt_welcomed`（见上）；如果想从 welcome 页开始，则不设。
 
 ### 录制前停在这个画面
-- 页面停在**看板首页**
+- 页面停在**看板首页**（已设 prt_welcomed）
 - 所有数字显示 **0**（可领总金额 0，已申请 0）
 - 这是视频的起点，制造"before"的感觉
 
