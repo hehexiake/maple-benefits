@@ -147,6 +147,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text)}
 .welcome-lang button{padding:5px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);font-size:12px;font-weight:700;cursor:pointer}
 .welcome-lang button.active{background:var(--primary);color:#fff;border-color:var(--primary)}
 .welcome-badge{display:inline-flex;align-items:center;gap:5px;background:var(--success-light);color:#065f46;border-radius:20px;padding:4px 12px;font-size:12px;font-weight:700;margin-bottom:16px}
+.welcome-badges{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.welcome-badge-ai{display:inline-flex;align-items:center;gap:5px;background:linear-gradient(135deg,#ede9fe,#dbeafe);color:#4c1d95;border-radius:20px;padding:4px 12px;font-size:12px;font-weight:700;border:1px solid #c4b5fd}
+.welcome-badge-free{display:inline-flex;align-items:center;gap:5px;background:var(--success-light);color:#065f46;border-radius:20px;padding:4px 12px;font-size:12px;font-weight:700;border:1px solid #6ee7b7}
+.welcome-footer{margin-top:28px;font-size:11px;color:var(--muted);display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap}
+.welcome-footer a{color:var(--muted);text-decoration:none;border-bottom:1px dashed currentColor}
 /* Profile-empty dashboard banner */
 .profile-empty-banner{background:var(--warning-light);border:1px solid #fde68a;border-radius:12px;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
 .profile-empty-banner .peb-text{font-size:13px;color:#78350f;font-weight:600}
@@ -158,7 +163,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text)}
 </head>
 <body>
 <nav id="sidebar">
-  <div class="sidebar-logo" style="display:flex;align-items:center;gap:10px"><img src="docs/favicon.png" width="28" height="28" style="border-radius:5px;flex-shrink:0"><div><h1>Canada Benefits Tracker</h1><p>v1.3</p></div></div>
+  <div class="sidebar-logo" style="display:flex;align-items:center;gap:10px;cursor:pointer" onclick="navigate('welcome')" title="Back to intro"><img src="docs/favicon.png" width="28" height="28" style="border-radius:5px;flex-shrink:0"><div><h1>Canada Benefits Tracker</h1><p>v1.3</p></div></div>
   <div class="lang-switcher">
     <div class="lang-pill">
       <button id="btn-lang-en" class="lang-btn" onclick="setLang('en')">EN</button>
@@ -337,7 +342,7 @@ en: {
   confirm_title:'Confirm', confirm_ok:'Confirm', confirm_cancel:'Cancel',
   toast_status_updated:'✅ {id} status → "{v}"',
   btn_save:'Save', btn_cancel:'Cancel', btn_test:'Test Connection', btn_clear:'Clear All Data',
-  about_text:'<b>Canada Benefits Tracker</b> v1.3<br>Single-file frontend · No backend<br>⚠️ For informational purposes only. Not tax or legal advice.',
+  about_text:'<b>Canada Benefits Tracker</b> v1.3<br>✨ AI-Powered · 🍁 Open source · Non-commercial<br>Single-file frontend · No backend · No ads<br>⚠️ For informational purposes only. Not tax or legal advice.',
   sec_identity:'🪪 Identity', sec_family:'👨‍👩‍👧 Family Status',
   sec_children:'👶 Children', sec_income:'💼 Income & Employment',
   sec_housing:'🏠 Housing', sec_childcare:'🧒 Childcare',
@@ -406,6 +411,9 @@ en: {
   section_data:'Data Management',
   ai_analyzing:'Analyzing…',
   welcome_badge:'🍁 Free · No account · Data stays on device',
+  welcome_badge_ai:'✨ AI-Powered',
+  welcome_badge_free:'🍁 Free · Open Source · Non-commercial',
+  welcome_footer:'🇨🇦 A community project built for newcomers to Canada · <a href="https://github.com/tuna-chin/maple-benefits" target="_blank">Open source on GitHub</a> · No ads · No tracking',
   welcome_title:'Stop leaving <span>Canadian money</span> unclaimed',
   welcome_sub:'Track your federal and provincial benefits — know what you qualify for, what you\'ve missed, and what to do next.',
   welcome_card1_val:'20', welcome_card1_label:'Benefits tracked\nFederal + BC',
@@ -509,7 +517,7 @@ zh: {
   confirm_title:'确认', confirm_ok:'确认', confirm_cancel:'取消',
   toast_status_updated:'✅ {id} 状态已更新为「{v}」',
   btn_save:'保存', btn_cancel:'取消', btn_test:'测试连接', btn_clear:'清除所有数据',
-  about_text:'<b>加拿大福利追踪器</b> v1.3<br>单文件前端 · 无后端<br>⚠️ 本工具仅供参考，不构成税务或法律建议。',
+  about_text:'<b>加拿大福利追踪器</b> v1.3<br>✨ AI 驱动 · 🍁 开源公益项目<br>单文件前端 · 无后端 · 无广告<br>⚠️ 本工具仅供参考，不构成税务或法律建议。',
   sec_identity:'🪪 身份基础', sec_family:'👨‍👩‍👧 家庭状态',
   sec_children:'👶 孩子信息', sec_income:'💼 收入与就业',
   sec_housing:'🏠 住房', sec_childcare:'🧒 托儿',
@@ -578,6 +586,9 @@ zh: {
   section_data:'数据管理',
   ai_analyzing:'AI分析中…',
   welcome_badge:'🍁 免费 · 无需注册 · 数据留在本地',
+  welcome_badge_ai:'✨ AI 驱动',
+  welcome_badge_free:'🍁 免费 · 开源 · 非商业公益',
+  welcome_footer:'🇨🇦 为加拿大新移民而建的公益项目 · <a href="https://github.com/tuna-chin/maple-benefits" target="_blank">GitHub 开源</a> · 无广告 · 不追踪',
   welcome_title:'别让加拿大<span>福利</span>白白流走',
   welcome_sub:'追踪联邦和省级福利——知道你能领什么、漏了什么、该怎么做。',
   welcome_card1_val:'20项', welcome_card1_label:'福利全覆盖\n联邦 + BC省',
@@ -886,7 +897,10 @@ function renderWelcome(){
   </div>
   <div class="welcome-inner">
     <img class="welcome-logo" src="docs/logo.png" alt="logo">
-    <div class="welcome-badge">${badge}</div>
+    <div class="welcome-badges">
+      <span class="welcome-badge-ai">${t('welcome_badge_ai')}</span>
+      <span class="welcome-badge-free">${t('welcome_badge_free')}</span>
+    </div>
     <h1 class="welcome-title">${title}</h1>
     <p class="welcome-sub">${sub}</p>
     <div class="welcome-cards">
@@ -898,6 +912,7 @@ function renderWelcome(){
       <button class="btn btn-primary btn-hero" onclick="markWelcomed();navigate('profile')">${t('welcome_cta_primary')}</button>
       <button class="btn-skip" onclick="markWelcomed();navigate('dashboard')">${t('welcome_cta_skip')}</button>
     </div>
+    <div class="welcome-footer">${t('welcome_footer')}</div>
   </div>`;
 }
 
