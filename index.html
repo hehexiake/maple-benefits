@@ -186,6 +186,16 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text)}
 .vh-empty{text-align:center;padding:20px 8px;margin:auto 0}
 .vh-empty-title{font-size:18px;font-weight:800}
 .vh-empty-sub{font-size:13px;color:var(--muted);margin-top:6px;line-height:1.5}
+/* ---- Motion layer (presentation-only; respects reduced-motion) ---- */
+:root{--ease-quint:cubic-bezier(.22,1,.36,1);--ease-quart:cubic-bezier(.25,1,.5,1)}
+@keyframes pageIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+#page-content.page-anim{animation:pageIn .26s var(--ease-quint)}
+.benefit-card:hover{transform:translateY(-2px)}
+.stat-mini{transition:transform .18s var(--ease-quint),border-color .18s,box-shadow .18s}
+.stat-mini:hover{transform:translateY(-2px)}
+.btn:active,.benefit-card:active,.vh-gap:active,.action-item:active,.lib-item:active{transform:scale(.978)}
+.vh-bar-fill{transition:width .7s var(--ease-quart)}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
@@ -892,9 +902,40 @@ function navigate(page){
   const el=document.getElementById('page-content');
   const renders={dashboard:renderDashboard,profile:renderProfile,alerts:renderAlerts,library:renderLibrary,advisor:renderAdvisor,settings:renderSettings};
   el.innerHTML=(renders[page]||renders.dashboard)();
+  el.classList.remove('page-anim');void el.offsetWidth;el.classList.add('page-anim');
+  if(page==='dashboard')afterDashboardRender();
   if(page==='profile')afterProfileRender();
   if(page==='settings')bindSettingsEvents();
   updateAlertBadge();
+}
+
+/* ============================================================
+   MOTION (presentation-only; reads rendered values, no data writes)
+   ============================================================ */
+function prefersReduced(){return !!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches);}
+function animateCountNode(node){
+  const raw=node.nodeValue||'';
+  const target=parseInt(raw.replace(/[^0-9]/g,''),10);
+  if(!isFinite(target))return;
+  const prefix=raw.trim().charAt(0)==='$'?'$':'';
+  const dur=target>999?700:550, start=performance.now();
+  const fmt=v=>prefix+Math.round(v).toLocaleString();
+  node.nodeValue=fmt(0); // set start synchronously to avoid a 1-frame flash of the final value
+  function tick(now){
+    const p=Math.min(1,(now-start)/dur), e=1-Math.pow(1-p,4);
+    node.nodeValue=fmt(target*e);
+    if(p<1)requestAnimationFrame(tick); else node.nodeValue=fmt(target);
+  }
+  requestAnimationFrame(tick);
+}
+function afterDashboardRender(){
+  if(prefersReduced())return; // final values already in DOM
+  const fill=document.querySelector('.vh-bar-fill');
+  if(fill){const tgt=fill.style.width||'0%';fill.style.width='0%';requestAnimationFrame(()=>requestAnimationFrame(()=>{fill.style.width=tgt;}));}
+  ['.vh-big','.vh-legend b','.stat-mini .value'].forEach(sel=>
+    document.querySelectorAll(sel).forEach(el=>{
+      if(el.firstChild&&el.firstChild.nodeType===3)animateCountNode(el.firstChild);
+    }));
 }
 
 /* ============================================================
