@@ -130,7 +130,7 @@
       "en": "Canada Workers Benefit",
       "cat": "federal",
       "scope": "federal",
-      "dataAsOf": "2025-26",
+      "dataAsOf": "2026-27",
       "max": "最高 $1,633（单身）/ $2,813（有家属）/年",
       "url": "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/canada-workers-benefit.html",
       "desc": "为低收入在职人员提供的退税福利，可提前预支。",
@@ -148,12 +148,22 @@
         "Canadian resident"
       ],
       "calculation": {
+        "basisNote": "CWB is a tax-year benefit; these are 2025 tax-year amounts (claimed on the 2025 return, driving 2026 ACWB advances) — the correct basis for the 2026-27 cycle.",
         "maxSingle": 1633,
         "maxWithDependants": 2813,
         "phaseInStartSingle": 26855,
         "phaseInStartDependants": 30639,
         "phaseOutEndSingle": 37742,
-        "phaseOutEndDependants": 49393
+        "phaseOutEndDependants": 49393,
+        "disabilitySupplementMax": 843,
+        "nextYearAmounts": {
+          "taxYear": "2026",
+          "paidFrom": "2027",
+          "maxSingle": 1650,
+          "maxWithDependants": 2850,
+          "disabilitySupplementMax": 860,
+          "secondaryEarnerExemption": 16714
+        }
       }
     },
     {
@@ -211,7 +221,7 @@
       "en": "Canada Learning Bond",
       "cat": "federal",
       "scope": "federal",
-      "dataAsOf": "2025-26",
+      "dataAsOf": "2026-27",
       "max": "最高 $2,000/孩子（终生）",
       "url": "https://www.canada.ca/en/services/benefits/education/education-savings/canada-learning-bond.html",
       "desc": "为低收入家庭孩子RESP免费注入最高$2000，无需自己供款。",
@@ -227,7 +237,9 @@
       ],
       "calculation": {
         "lifetimeMax": 2000,
-        "incomeThreshold": 57375
+        "incomeThreshold": 57375,
+        "incomeThresholdAsOf": "2025-26",
+        "incomeThresholdNote": "≤3 children. 2026-27 ESDC income brackets not yet published (typically released ~Jun-Aug 2026); refresh on release. Lifetime max $2,000 is statutory and unchanged."
       }
     },
     {
