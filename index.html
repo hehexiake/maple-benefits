@@ -163,7 +163,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text)}
 </head>
 <body>
 <nav id="sidebar">
-  <div class="sidebar-logo" style="display:flex;align-items:center;gap:10px;cursor:pointer" onclick="navigate('welcome')" title="Back to intro"><img src="docs/favicon.png" width="28" height="28" style="border-radius:5px;flex-shrink:0"><div><h1>Canada Benefits Tracker</h1><p>v1.3</p></div></div>
+  <div class="sidebar-logo" style="display:flex;align-items:center;gap:10px;cursor:pointer" onclick="navigate('welcome')" title="Back to intro"><img src="docs/favicon.png" width="28" height="28" style="border-radius:5px;flex-shrink:0"><div><h1>Canada Benefits Tracker</h1><p>v1.5</p></div></div>
   <div class="lang-switcher">
     <div class="lang-pill">
       <button id="btn-lang-en" class="lang-btn" onclick="setLang('en')">EN</button>
@@ -274,7 +274,7 @@ en: {
   status_unaware:'Unaware', status_aware:'Aware', status_applied:'Applied',
   status_receiving:'Receiving', status_ineligible:'Ineligible',
   ai_section_title:'AI Benefits Assistant',
-  banner_data_year:'Benefit data based on <b>2025-26 benefit year (July 2025 – June 2026)</b>. Amounts per CRA / provincial official sources.',
+  banner_data_year:'Federal data: <b>2026-27 benefit year (July 2026 – June 2027)</b>, based on 2025 tax return. BC data: 2025-26. Amounts per CRA / provincial official sources.',
   banner_cgeb_update:'<b>Update:</b> GST/HST Credit → Canada Groceries & Essentials Benefit, effective July 2026 (+25%). Amounts in this tool now reflect the 2026-27 benefit year.',
   calc_fill_profile:'Fill profile to calculate',
   calc_fill_income:'Fill income to calculate',
@@ -342,16 +342,16 @@ en: {
   confirm_title:'Confirm', confirm_ok:'Confirm', confirm_cancel:'Cancel',
   toast_status_updated:'✅ {id} status → "{v}"',
   btn_save:'Save', btn_cancel:'Cancel', btn_test:'Test Connection', btn_clear:'Clear All Data',
-  about_text:'<b>Canada Benefits Tracker</b> v1.3<br>✨ AI-Powered · 🍁 Open source · Non-commercial<br>Single-file frontend · No backend · No ads<br>⚠️ For informational purposes only. Not tax or legal advice.',
+  about_text:'<b>Canada Benefits Tracker</b> v1.5<br>✨ AI-Powered · 🍁 Open source · Non-commercial<br>Single-file frontend · No backend · No ads<br>⚠️ For informational purposes only. Not tax or legal advice.',
   sec_identity:'🪪 Identity', sec_family:'👨‍👩‍👧 Family Status',
   sec_children:'👶 Children', sec_income:'💼 Income & Employment',
   sec_housing:'🏠 Housing', sec_childcare:'🧒 Childcare',
   sec_appstatus:'📋 Application Status', sec_insurance:'🦷 Insurance & Disability',
   field_province:'Province', field_city:'City',
-  field_pr_status:'PR / Citizen Status', field_tax_filed:'Filed 2024 Tax Return',
+  field_pr_status:'PR / Citizen Status', field_tax_filed:'Filed 2025 Tax Return',
   field_marital:'Marital Status', field_has_child:'Have children under 18?',
   field_num_children:'Number of children', field_child_dob:'Youngest child DOB',
-  field_primary_caregiver:'Primary caregiver?', field_income:'2024 Family Net Income (CAD)',
+  field_primary_caregiver:'Primary caregiver?', field_income:'2025 Family Net Income (CAD)',
   field_employment:'Employment Status', field_housing:'Housing Situation',
   field_monthly_rent:'Monthly Rent (CAD)', field_childcare_licensed:'Licensed childcare?',
   field_dental:'Have employer dental insurance?', field_dtc:'Approved for DTC?',
@@ -449,7 +449,7 @@ zh: {
   status_unaware:'未听说', status_aware:'已了解', status_applied:'申请中',
   status_receiving:'已领取', status_ineligible:'不符合',
   ai_section_title:'AI 福利助手',
-  banner_data_year:'福利数据基于 <b>2025-26福利年（2025年7月-2026年6月）</b>，涉及金额以 CRA / 省政府官方为准。',
+  banner_data_year:'联邦数据：<b>2026-27福利年（2026年7月-2027年6月）</b>，基于2025年报税。BC省数据：2025-26。金额以 CRA / 省政府官方为准。',
   banner_cgeb_update:'<b>重要更新：</b>GST/HST Credit 自 2026年7月起改名为 Canada Groceries and Essentials Benefit 并永久增加25%，本工具数据已更新至 2026-27 福利年度。',
   calc_fill_profile:'填写档案后计算',
   calc_fill_income:'填写收入后计算',
@@ -517,16 +517,16 @@ zh: {
   confirm_title:'确认', confirm_ok:'确认', confirm_cancel:'取消',
   toast_status_updated:'✅ {id} 状态已更新为「{v}」',
   btn_save:'保存', btn_cancel:'取消', btn_test:'测试连接', btn_clear:'清除所有数据',
-  about_text:'<b>加拿大福利追踪器</b> v1.3<br>✨ AI 驱动 · 🍁 开源公益项目<br>单文件前端 · 无后端 · 无广告<br>⚠️ 本工具仅供参考，不构成税务或法律建议。',
+  about_text:'<b>加拿大福利追踪器</b> v1.5<br>✨ AI 驱动 · 🍁 开源公益项目<br>单文件前端 · 无后端 · 无广告<br>⚠️ 本工具仅供参考，不构成税务或法律建议。',
   sec_identity:'🪪 身份基础', sec_family:'👨‍👩‍👧 家庭状态',
   sec_children:'👶 孩子信息', sec_income:'💼 收入与就业',
   sec_housing:'🏠 住房', sec_childcare:'🧒 托儿',
   sec_appstatus:'📋 已申请状态', sec_insurance:'🦷 保险与残障',
   field_province:'居住省份', field_city:'居住城市',
-  field_pr_status:'永久居民/公民身份', field_tax_filed:'2024年是否已报税',
+  field_pr_status:'永久居民/公民身份', field_tax_filed:'2025年是否已报税',
   field_marital:'婚姻状态', field_has_child:'是否有18岁以下孩子',
   field_num_children:'孩子数量', field_child_dob:'孩子出生日期（首个）',
-  field_primary_caregiver:'是否是主要抚养人', field_income:'2024年家庭净收入（$）',
+  field_primary_caregiver:'是否是主要抚养人', field_income:'2025年家庭净收入（$）',
   field_employment:'就业状态', field_housing:'住房类型',
   field_monthly_rent:'月租金（$）', field_childcare_licensed:'是否使用持牌托儿机构',
   field_dental:'是否有雇主牙科保险', field_dtc:'是否持有DTC批准',
